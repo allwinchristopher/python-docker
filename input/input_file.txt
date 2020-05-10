@@ -1,0 +1,3 @@
+Hi there
+
+Copying file contents from one docker container to another container

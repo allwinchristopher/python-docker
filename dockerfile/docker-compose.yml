@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+   pythonapp:
+      container_name: pythonapp
+      build: .
+      ports:
+        - 5000:5000
+      volumes:
+        - /opt/python/scripts:/opt/data:Z
+      depends_on:
+        - redis
+   redis:
+      container_name: redis
+      image: redis

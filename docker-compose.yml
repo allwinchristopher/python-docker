@@ -1,0 +1,17 @@
+version: '2'
+services:
+   icontainer:
+      container_name: icontainer
+      image: python:3.7-slim
+      volumes:
+         - /opt/python/scripts:/opt/data:Z
+      command: /bin/bash -c "python3 /opt/data/docker_rw.py ; sleep 50"
+
+   ocontainer:
+      container_name: ocontainer
+      image: python:3.7-slim
+      volumes:
+         - /opt/python/scripts:/opt/data:Z
+      depends_on:
+         - icontainer
+      command: /bin/bash -c "python3 /opt/data/docker_write_container.py ; sleep 50"
