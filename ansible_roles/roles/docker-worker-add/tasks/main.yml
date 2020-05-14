@@ -1,5 +1,5 @@
 ---
-# tasks file for docker-worker-add
+# tasks file for docker-worker-add in master node..
 
 - name: Checking the Yum update
   yum: name=* state=latest update_cache=true
