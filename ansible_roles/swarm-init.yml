@@ -1,0 +1,20 @@
+---
+
+- name: Swarm Cluster Initialize Script
+  hosts: docker-swarm
+  roles:
+    - docker-swarm-master
+
+
+- name: Add Worker Node to Master Node
+  hosts: tomcat-node
+  roles:
+    - docker-worker-add
+
+
+- name: Stack Service Initialize Script
+  hosts: docker-swarm
+  roles:
+    - docker-stack-service
+
+...
