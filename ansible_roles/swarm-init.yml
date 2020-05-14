@@ -1,4 +1,5 @@
 ---
+# task form Swarm cluster
 
 - name: Swarm Cluster Initialize Script
   hosts: docker-swarm
