@@ -1,0 +1,6 @@
+---
+
+- name: Stack Service Initialize Script
+  hosts: docker-swarm
+  roles:
+    - docker-stack-service
