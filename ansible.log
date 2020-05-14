@@ -1,0 +1,131 @@
+[WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+PLAY [Swarm Cluster Initialize Script] **************************************************************************************************
+
+TASK [Gathering Facts] ******************************************************************************************************************
+[WARNING]: Platform linux on host docker is using the discovered Python interpreter at /usr/bin/python, but future installation of
+another Python interpreter could change this. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html
+for more information.
+ok: [docker]
+
+TASK [docker-swarm-master : Checking the Yum update] ************************************************************************************
+ok: [docker]
+
+TASK [docker-swarm-master : debug] ******************************************************************************************************
+ok: [docker] => {
+    "msg": "Packages Updated in Total is \"{u'msg': u'', 'failed': False, u'changed': False, u'results': [u'Nothing to do here, all packages are up to date'], u'rc': 0}\""
+}
+
+TASK [docker-swarm-master : Verifying if docker-CE is installed] ************************************************************************
+ok: [docker]
+
+TASK [docker-swarm-master : shell] ******************************************************************************************************
+changed: [docker]
+
+TASK [docker-swarm-master : debug] ******************************************************************************************************
+ok: [docker] => {
+    "msg": "Docker Version on the Target Node is {'stderr_lines': [], u'changed': True, u'end': u'2020-05-14 16:30:05.999475', 'failed': False, u'stdout': u' Version:           19.03.6-ce\\n  Version:          19.03.6-ce\\n  Version:          1.3.2\\n  Version:          1.0.0-rc10\\n  Version:          0.18.0', u'cmd': u\"docker version | grep 'Version'\", u'rc': 0, u'start': u'2020-05-14 16:30:05.434797', u'stderr': u'', u'delta': u'0:00:00.564678', 'stdout_lines': [u' Version:           19.03.6-ce', u'  Version:          19.03.6-ce', u'  Version:          1.3.2', u'  Version:          1.0.0-rc10', u'  Version:          0.18.0']}"
+}
+
+TASK [docker-swarm-master : Check the Swarm cluster status in master node] **************************************************************
+fatal: [docker]: FAILED! => {"changed": true, "cmd": "docker node ls", "delta": "0:00:00.062378", "end": "2020-05-14 16:30:06.494097", "msg": "non-zero return code", "rc": 1, "start": "2020-05-14 16:30:06.431719", "stderr": "Error response from daemon: This node is not a swarm manager. Use \"docker swarm init\" or \"docker swarm join\" to connect this node to swarm and try again.", "stderr_lines": ["Error response from daemon: This node is not a swarm manager. Use \"docker swarm init\" or \"docker swarm join\" to connect this node to swarm and try again."], "stdout": "", "stdout_lines": []}
+...ignoring
+
+TASK [docker-swarm-master : Creating a new Swarm cluster if not exist] ******************************************************************
+changed: [docker]
+
+TASK [docker-swarm-master : Fetching the Manager token] *********************************************************************************
+changed: [docker]
+
+TASK [docker-swarm-master : Fetching the Worker token] **********************************************************************************
+changed: [docker]
+
+TASK [docker-swarm-master : Veryfing the swarm cluster initialization status] ***********************************************************
+changed: [docker]
+
+TASK [docker-swarm-master : copy] *******************************************************************************************************
+ok: [docker]
+
+TASK [docker-swarm-master : debug] ******************************************************************************************************
+ok: [docker] => {
+    "msg": "Node status is {'stderr_lines': [], u'changed': True, u'end': u'2020-05-14 16:30:09.633514', 'failed': False, u'stdout': u'ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS      ENGINE VERSION\\nizaiki3h4hp2cd328sk14c45p *   docker              Ready               Drain               Leader              19.03.6-ce', u'cmd': u'docker node ls', u'rc': 0, u'start': u'2020-05-14 16:30:09.560971', u'stderr': u'', u'delta': u'0:00:00.072543', 'stdout_lines': [u'ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS      ENGINE VERSION', u'izaiki3h4hp2cd328sk14c45p *   docker              Ready               Drain               Leader              19.03.6-ce']}"
+}
+
+PLAY [Add Worker Node to Master Node] ***************************************************************************************************
+
+TASK [Gathering Facts] ******************************************************************************************************************
+[WARNING]: Platform linux on host tomcat is using the discovered Python interpreter at /usr/bin/python, but future installation of
+another Python interpreter could change this. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html
+for more information.
+ok: [tomcat]
+
+TASK [docker-worker-add : Checking the Yum update] **************************************************************************************
+ok: [tomcat]
+
+TASK [docker-worker-add : debug] ********************************************************************************************************
+ok: [tomcat] => {
+    "msg": "Packages Updated in Total is {u'msg': u'', 'failed': False, u'changed': False, u'results': [u'Nothing to do here, all packages are up to date'], u'rc': 0}"
+}
+
+TASK [docker-worker-add : Verifying if docker-CE is installed] **************************************************************************
+skipping: [tomcat]
+
+TASK [docker-worker-add : shell] ********************************************************************************************************
+changed: [tomcat]
+
+TASK [docker-worker-add : debug] ********************************************************************************************************
+ok: [tomcat] => {
+    "msg": "Docker Version on the Target Node is {'stderr_lines': [], u'changed': True, u'end': u'2020-05-14 16:30:14.964435', 'failed': False, u'stdout': u' Version:           19.03.6-ce\\n  Version:          19.03.6-ce\\n  Version:          1.3.2\\n  Version:          1.0.0-rc10\\n  Version:          0.18.0', u'cmd': u'docker version | grep \"Version\"', u'rc': 0, u'start': u'2020-05-14 16:30:14.907048', u'stderr': u'', u'delta': u'0:00:00.057387', 'stdout_lines': [u' Version:           19.03.6-ce', u'  Version:          19.03.6-ce', u'  Version:          1.3.2', u'  Version:          1.0.0-rc10', u'  Version:          0.18.0']}"
+}
+
+TASK [docker-worker-add : Adding a worker to the manager Node] **************************************************************************
+changed: [tomcat]
+
+TASK [docker-worker-add : debug] ********************************************************************************************************
+ok: [tomcat] => {
+    "msg": {
+        "changed": true, 
+        "cmd": "docker swarm join --token SWMTKN-1-5kwlahzl90w916hty6aw8o5qkn909ue7bqnjci5seyx2io6ns0-bni6vwjlc2kfm3pf7ae3wboon  172.31.24.219:2377", 
+        "delta": "0:00:00.151640", 
+        "end": "2020-05-14 16:30:15.584220", 
+        "failed": false, 
+        "rc": 0, 
+        "start": "2020-05-14 16:30:15.432580", 
+        "stderr": "", 
+        "stderr_lines": [], 
+        "stdout": "This node joined a swarm as a worker.", 
+        "stdout_lines": [
+            "This node joined a swarm as a worker."
+        ]
+    }
+}
+
+PLAY [Stack Service Initialize Script] **************************************************************************************************
+
+TASK [Gathering Facts] ******************************************************************************************************************
+ok: [docker]
+
+TASK [docker-stack-service : Checking if the swarm ckuster exists] **********************************************************************
+changed: [docker]
+
+TASK [docker-stack-service : Verifying if there is existing stack service] **************************************************************
+changed: [docker]
+
+TASK [docker-stack-service : Creating the new Stack service for deploying the App] ******************************************************
+changed: [docker]
+
+TASK [docker-stack-service : Verify the created stack application is Up & Running] ******************************************************
+changed: [docker]
+
+TASK [docker-stack-service : debug] *****************************************************************************************************
+ok: [docker] => {
+    "msg": "Docker Services Running in the Swarm Cluster are {'stderr_lines': [], u'changed': True, u'end': u'2020-05-14 16:30:24.509038', 'failed': False, u'stdout': u'ID                  NAME                  MODE                REPLICAS            IMAGE                  PORTS\\nn0uy6fjpxji1        all_stack_pythonapp   replicated          0/1                 all-python3.6:latest   *:5000->5000/tcp\\nopw5y4g3zzhw        all_stack_redis       replicated          0/1                 redis:latest           ', u'cmd': u'docker service ls', u'rc': 0, u'start': u'2020-05-14 16:30:24.444507', u'stderr': u'', u'delta': u'0:00:00.064531', 'stdout_lines': [u'ID                  NAME                  MODE                REPLICAS            IMAGE                  PORTS', u'n0uy6fjpxji1        all_stack_pythonapp   replicated          0/1                 all-python3.6:latest   *:5000->5000/tcp', u'opw5y4g3zzhw        all_stack_redis       replicated          0/1                 redis:latest           ']}"
+}
+
+RUNNING HANDLER [docker-stack-service : restart-docker-stack] ***************************************************************************
+changed: [docker]
+
+PLAY RECAP ******************************************************************************************************************************
+docker                     : ok=20   changed=11   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+tomcat                     : ok=7    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+.
