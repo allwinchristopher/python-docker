@@ -1,6 +1,6 @@
 ---
 
-# task for stack service 
+# task for stack service.. 
 #
 - name: Stack Service Initialize Script
   hosts: docker-swarm
