@@ -1,0 +1,28 @@
+---
+# tasks file for docker-worker-add
+
+- name: Checking the Yum update
+  yum: name=* state=latest update_cache=true
+  when: ansible_os_family == 'RedHat'
+  register: yum_update
+- debug:
+    msg: Packages Updated in Total is {{ yum_update }}
+
+
+- name: Verifying if docker-CE is installed
+  yum: name=docker state=present update_cache=true
+  when: ansible_os_family == 'Redhat'
+- shell: docker version | grep "Version"
+  register: docver_target
+- debug:
+    msg: Docker Version on the Target Node is {{ docver_target }}
+
+
+- name: Adding a worker to the manager Node
+  shell: "docker swarm join --token {{ hostvars['docker']['worker_token']['stdout'] }}  {{ hostvars['docker']['ansible_default_ipv4']['address'] }}:2377"
+  register: worker_node
+- debug:
+    msg: "{{ worker_node }}"
+  notify:
+    - worker-restart
+  tags: swarmcluster

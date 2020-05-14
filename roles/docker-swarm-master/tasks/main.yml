@@ -1,0 +1,56 @@
+---
+# tasks file for docker-swarm-master
+
+- name: Checking the Yum update
+  yum: name=* state=latest update_cache=true
+  when: ansible_os_family == 'RedHat'
+  register: packages
+- debug:
+   msg: Packages Updated in Total is "{{ packages }}"
+
+
+- name: Verifying if docker-CE is installed
+  yum: name=docker state=present update_cache=true
+  when: ansible_os_family == 'RedHat'
+- shell: "docker version | grep 'Version'"
+  register: docver
+- debug:
+   msg: Docker Version on the Target Node is {{ docver }}
+
+
+- name:  Check the Swarm cluster status in master node
+  shell: docker node ls
+  register: swarmmaster
+  ignore_errors: true
+  tags: swarmcluster
+
+
+- name: Creating a new Swarm cluster if not exist
+  shell: "docker swarm init --advertise-addr={{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}:2377 ; docker node update --availability drain docker"
+  run_once: true
+  when: swarmmaster.rc != 0
+  tags: swarmcluster 
+
+
+- name: Fetching the Manager token
+  shell: docker swarm join-token --quiet manager
+  register: master_token
+  tags: swarmcluster
+
+
+- name: Fetching the Worker token
+  shell: docker swarm join-token --quiet worker
+  register: worker_token
+  tags: swarmcluster
+ 
+ 
+- name: Veryfing the swarm cluster initialization status
+  shell: docker node ls
+  register: node_status
+- copy: src=dockerswarminit dest=/opt
+  notify: 
+    - enable-docker
+    - restart-docker
+- debug:
+    msg: Node status is {{ node_status }}
+...  

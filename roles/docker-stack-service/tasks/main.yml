@@ -1,0 +1,34 @@
+---
+# tasks file for docker-stack-service
+
+- name: Checking if the swarm ckuster exists
+  shell: docker node ls
+  register: docker_swarm
+  
+
+- name: Verifying if there is existing stack service
+  shell: docker ps
+  register: docservice
+  when: docker_swarm.rc == 0
+  tags: docstack
+
+
+
+- name: Creating the new Stack service for deploying the App
+  shell: docker stack deploy -c /opt/python/scripts/docker-stack/docker-compose.yml all_stack
+  when: docservice.rc == 0
+  register: dstack
+  notify:
+    - restart-docker-stack
+  tags: docstack
+
+
+- name: Verify the created stack application is Up & Running
+  shell: docker service ls
+  when: dstack.rc == 0
+  register: service_list
+- debug:
+    msg: Docker Services Running in the Swarm Cluster are {{ service_list }}
+  tags: docstack
+
+

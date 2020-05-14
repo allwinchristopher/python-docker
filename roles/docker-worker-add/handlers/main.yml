@@ -1,0 +1,5 @@
+---
+# handlers file for docker-worker-add
+
+- name: worker-restart
+  service: name=docker state=restarted
