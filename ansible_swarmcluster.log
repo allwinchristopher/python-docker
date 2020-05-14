@@ -1,0 +1,865 @@
+ansible-playbook 2.9.7
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 2.7.16 (default, Dec 12 2019, 23:58:22) [GCC 7.3.1 20180712 (Red Hat 7.3.1-6)]
+Using /etc/ansible/ansible.cfg as config file
+host_list declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+script declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+auto declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+[WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+Parsed /etc/ansible/hosts inventory source with ini plugin
+
+PLAYBOOK: swarm-init.yml ****************************************************************************************************************
+2 plays in swarm-init.yml
+
+PLAY [Swarm Cluster Initialize Script] **************************************************************************************************
+
+TASK [Gathering Facts] ******************************************************************************************************************
+task path: /etc/ansible/swarm-init.yml:3
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<docker> (0, '/root\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir /root/.ansible/tmp/ansible-tmp-1589466095.38-4417-138824198167525 && echo ansible-tmp-1589466095.38-4417-138824198167525="` echo /root/.ansible/tmp/ansible-tmp-1589466095.38-4417-138824198167525 `" ) && sleep 0'"'"''
+<docker> (0, 'ansible-tmp-1589466095.38-4417-138824198167525=/root/.ansible/tmp/ansible-tmp-1589466095.38-4417-138824198167525\n', '')
+<docker> Attempting python interpreter discovery
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'echo PLATFORM; uname; echo FOUND; command -v '"'"'"'"'"'"'"'"'/usr/bin/python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.5'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/libexec/platform-python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''
+<docker> (0, 'PLATFORM\nLinux\nFOUND\n/usr/bin/python\n/usr/bin/python3.7\n/usr/bin/python2.7\n/usr/bin/python3\n/usr/bin/python\nENDFOUND\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'/usr/bin/python && sleep 0'"'"''
+<docker> (0, '{"osrelease_content": "NAME=\\"Amazon Linux\\"\\nVERSION=\\"2\\"\\nID=\\"amzn\\"\\nID_LIKE=\\"centos rhel fedora\\"\\nVERSION_ID=\\"2\\"\\nPRETTY_NAME=\\"Amazon Linux 2\\"\\nANSI_COLOR=\\"0;33\\"\\nCPE_NAME=\\"cpe:2.3:o:amazon:amazon_linux:2\\"\\nHOME_URL=\\"https://amazonlinux.com/\\"\\n", "platform_dist_result": ["", "", ""]}\n', '')
+<docker> Python interpreter discovery fallback (unsupported Linux distribution: amzn)
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/system/setup.py
+<docker> PUT /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpdmU9Ap TO /root/.ansible/tmp/ansible-tmp-1589466095.38-4417-138824198167525/AnsiballZ_setup.py
+<docker> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 '[docker]'
+<docker> (0, 'sftp> put /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpdmU9Ap /root/.ansible/tmp/ansible-tmp-1589466095.38-4417-138824198167525/AnsiballZ_setup.py\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'chmod u+x /root/.ansible/tmp/ansible-tmp-1589466095.38-4417-138824198167525/ /root/.ansible/tmp/ansible-tmp-1589466095.38-4417-138824198167525/AnsiballZ_setup.py && sleep 0'"'"''
+<docker> (0, '', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 -tt docker '/bin/sh -c '"'"'/usr/bin/python /root/.ansible/tmp/ansible-tmp-1589466095.38-4417-138824198167525/AnsiballZ_setup.py && sleep 0'"'"''
+<docker> (0, '\r\n{"invocation": {"module_args": {"filter": "*", "gather_subset": ["all"], "fact_path": "/etc/ansible/facts.d", "gather_timeout": 10}}, "ansible_facts": {"ansible_fibre_channel_wwn": [], "module_setup": true, "ansible_distribution_version": "2", "ansible_distribution_file_variety": "Amazon", "ansible_env": {"LANG": "en_US.UTF-8", "TERM": "xterm", "SHELL": "/bin/bash", "XDG_RUNTIME_DIR": "/run/user/0", "SHLVL": "2", "SSH_TTY": "/dev/pts/4", "PWD": "/root", "LESSOPEN": "||/usr/bin/lesspipe.sh %s", "XDG_SESSION_ID": "45", "SSH_CLIENT": "172.31.24.219 35282 22", "LOGNAME": "root", "USER": "root", "MAIL": "/var/mail/root", "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin", "LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:", "HOME": "/root", "_": "/usr/bin/python", "SSH_CONNECTION": "172.31.24.219 35282 172.31.24.219 22"}, "ansible_userspace_bits": "64", "ansible_architecture": "x86_64", "ansible_default_ipv4": {"macaddress": "02:22:61:6c:e6:4c", "network": "172.31.16.0", "mtu": 9001, "broadcast": "172.31.31.255", "alias": "eth0", "netmask": "255.255.240.0", "address": "172.31.24.219", "interface": "eth0", "type": "ether", "gateway": "172.31.16.1"}, "ansible_swapfree_mb": 0, "ansible_default_ipv6": {}, "ansible_br_6f05936f4caf": {"macaddress": "02:42:c7:6f:58:f1", "features": {"tx_checksum_ipv4": "off [fixed]", "generic_receive_offload": "on", "tx_checksum_ipv6": "off [fixed]", "tx_scatter_gather_fraglist": "on", "rx_all": "off [fixed]", "highdma": "on", "rx_fcs": "off [fixed]", "tx_lockless": "on [fixed]", "tx_tcp_ecn_segmentation": "on", "rx_udp_tunnel_port_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "tx_gso_robust": "on", "tx_tcp_mangleid_segmentation": "on", "tx_ipxip4_segmentation": "on", "tx_checksumming": "on", "vlan_challenged": "off [fixed]", "loopback": "off [fixed]", "tx_ipxip6_segmentation": "on", "fcoe_mtu": "off [fixed]", "scatter_gather": "on", "tx_checksum_sctp": "off [fixed]", "tx_vlan_stag_hw_insert": "on", "rx_vlan_stag_hw_parse": "off [fixed]", "tx_gso_partial": "on", "rx_vlan_stag_filter": "off [fixed]", "large_receive_offload": "off [fixed]", "tx_scatter_gather": "on", "rx_checksumming": "off [fixed]", "tx_tcp_segmentation": "on", "netns_local": "on [fixed]", "tx_esp_segmentation": "on", "generic_segmentation_offload": "on", "tx_udp_tnl_segmentation": "on", "tcp_segmentation_offload": "on", "l2_fwd_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "tx_gre_csum_segmentation": "on", "esp_tx_csum_hw_offload": "off [fixed]", "tx_tcp6_segmentation": "on", "tx_udp_tnl_csum_segmentation": "on", "udp_fragmentation_offload": "off", "tx_sctp_segmentation": "on", "tx_checksum_fcoe_crc": "off [fixed]", "hw_tc_offload": "off [fixed]", "tx_checksum_ip_generic": "on", "tx_fcoe_segmentation": "on", "tx_nocache_copy": "off", "rx_vlan_filter": "off [fixed]", "tx_vlan_offload": "on", "receive_hashing": "off [fixed]", "tx_gre_segmentation": "on"}, "interfaces": [], "id": "8000.0242c76f58f1", "mtu": 1500, "device": "br-6f05936f4caf", "promisc": false, "stp": false, "ipv4": {"broadcast": "172.28.255.255", "netmask": "255.255.0.0", "network": "172.28.0.0", "address": "172.28.0.1"}, "active": false, "timestamping": ["rx_software", "software"], "type": "bridge", "hw_timestamp_filters": []}, "ansible_cmdline": {"console": "ttyS0,115200n8", "rd.emergency": "poweroff", "net.ifnames": "0", "biosdevname": "0", "rd.shell": "0", "BOOT_IMAGE": "/boot/vmlinuz-4.14.171-136.231.amzn2.x86_64", "ro": true, "root": "UUID=e75a1891-3463-448b-8f59-5e3353af90ba", "nvme_core.io_timeout": "4294967295"}, "ansible_machine_id": "ec214dee1f497e5a0c3f972da49e4684", "ansible_userspace_architecture": "x86_64", "ansible_product_uuid": "EC21CE3F-BA31-F50A-A962-5CDD15F103DA", "ansible_pkg_mgr": "yum", "ansible_docker_gwbridge": {"macaddress": "02:42:16:62:8b:b8", "features": {"tx_checksum_ipv4": "off [fixed]", "generic_receive_offload": "on", "tx_checksum_ipv6": "off [fixed]", "tx_scatter_gather_fraglist": "on", "rx_all": "off [fixed]", "highdma": "on", "rx_fcs": "off [fixed]", "tx_lockless": "on [fixed]", "tx_tcp_ecn_segmentation": "on", "rx_udp_tunnel_port_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "tx_gso_robust": "on", "tx_tcp_mangleid_segmentation": "on", "tx_ipxip4_segmentation": "on", "tx_checksumming": "on", "vlan_challenged": "off [fixed]", "loopback": "off [fixed]", "tx_ipxip6_segmentation": "on", "fcoe_mtu": "off [fixed]", "scatter_gather": "on", "tx_checksum_sctp": "off [fixed]", "tx_vlan_stag_hw_insert": "on", "rx_vlan_stag_hw_parse": "off [fixed]", "tx_gso_partial": "on", "rx_vlan_stag_filter": "off [fixed]", "large_receive_offload": "off [fixed]", "tx_scatter_gather": "on", "rx_checksumming": "off [fixed]", "tx_tcp_segmentation": "on", "netns_local": "on [fixed]", "tx_esp_segmentation": "on", "generic_segmentation_offload": "on", "tx_udp_tnl_segmentation": "on", "tcp_segmentation_offload": "on", "l2_fwd_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "tx_gre_csum_segmentation": "on", "esp_tx_csum_hw_offload": "off [fixed]", "tx_tcp6_segmentation": "on", "tx_udp_tnl_csum_segmentation": "on", "udp_fragmentation_offload": "off", "tx_sctp_segmentation": "on", "tx_checksum_fcoe_crc": "off [fixed]", "hw_tc_offload": "off [fixed]", "tx_checksum_ip_generic": "on", "tx_fcoe_segmentation": "on", "tx_nocache_copy": "off", "rx_vlan_filter": "off [fixed]", "tx_vlan_offload": "on", "receive_hashing": "off [fixed]", "tx_gre_segmentation": "on"}, "interfaces": [], "id": "8000.024216628bb8", "mtu": 1500, "device": "docker_gwbridge", "promisc": false, "stp": false, "ipv4": {"broadcast": "172.19.255.255", "netmask": "255.255.0.0", "network": "172.19.0.0", "address": "172.19.0.1"}, "ipv6": [{"scope": "link", "prefix": "64", "address": "fe80::42:16ff:fe62:8bb8"}], "active": false, "timestamping": ["rx_software", "software"], "type": "bridge", "hw_timestamp_filters": []}, "ansible_distribution": "Amazon", "ansible_iscsi_iqn": "", "ansible_all_ipv6_addresses": ["fe80::42:16ff:fe62:8bb8", "fe80::22:61ff:fe6c:e64c"], "ansible_uptime_seconds": 13085, "ansible_kernel": "4.14.171-136.231.amzn2.x86_64", "ansible_system_capabilities_enforced": "True", "ansible_python": {"executable": "/usr/bin/python", "version": {"micro": 16, "major": 2, "releaselevel": "final", "serial": 0, "minor": 7}, "type": "CPython", "has_sslcontext": true, "version_info": [2, 7, 16, "final", 0]}, "ansible_is_chroot": false, "ansible_hostnqn": "", "ansible_user_shell": "/bin/bash", "ansible_product_serial": "ec21ce3f-ba31-f50a-a962-5cdd15f103da", "ansible_form_factor": "Other", "ansible_distribution_file_parsed": true, "ansible_fips": false, "ansible_user_id": "root", "ansible_selinux_python_present": false, "ansible_kernel_version": "#1 SMP Thu Feb 27 20:22:48 UTC 2020", "ansible_local": {}, "ansible_processor_vcpus": 1, "ansible_docker0": {"macaddress": "02:42:cd:ae:b2:86", "features": {"tx_checksum_ipv4": "off [fixed]", "generic_receive_offload": "on", "tx_checksum_ipv6": "off [fixed]", "tx_scatter_gather_fraglist": "on", "rx_all": "off [fixed]", "highdma": "on", "rx_fcs": "off [fixed]", "tx_lockless": "on [fixed]", "tx_tcp_ecn_segmentation": "on", "rx_udp_tunnel_port_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "tx_gso_robust": "on", "tx_tcp_mangleid_segmentation": "on", "tx_ipxip4_segmentation": "on", "tx_checksumming": "on", "vlan_challenged": "off [fixed]", "loopback": "off [fixed]", "tx_ipxip6_segmentation": "on", "fcoe_mtu": "off [fixed]", "scatter_gather": "on", "tx_checksum_sctp": "off [fixed]", "tx_vlan_stag_hw_insert": "on", "rx_vlan_stag_hw_parse": "off [fixed]", "tx_gso_partial": "on", "rx_vlan_stag_filter": "off [fixed]", "large_receive_offload": "off [fixed]", "tx_scatter_gather": "on", "rx_checksumming": "off [fixed]", "tx_tcp_segmentation": "on", "netns_local": "on [fixed]", "tx_esp_segmentation": "on", "generic_segmentation_offload": "on", "tx_udp_tnl_segmentation": "on", "tcp_segmentation_offload": "on", "l2_fwd_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "tx_gre_csum_segmentation": "on", "esp_tx_csum_hw_offload": "off [fixed]", "tx_tcp6_segmentation": "on", "tx_udp_tnl_csum_segmentation": "on", "udp_fragmentation_offload": "off", "tx_sctp_segmentation": "on", "tx_checksum_fcoe_crc": "off [fixed]", "hw_tc_offload": "off [fixed]", "tx_checksum_ip_generic": "on", "tx_fcoe_segmentation": "on", "tx_nocache_copy": "off", "rx_vlan_filter": "off [fixed]", "tx_vlan_offload": "on", "receive_hashing": "off [fixed]", "tx_gre_segmentation": "on"}, "interfaces": [], "id": "8000.0242cdaeb286", "mtu": 1500, "device": "docker0", "promisc": false, "stp": false, "ipv4": {"broadcast": "172.17.255.255", "netmask": "255.255.0.0", "network": "172.17.0.0", "address": "172.17.0.1"}, "active": false, "timestamping": ["rx_software", "software"], "type": "bridge", "hw_timestamp_filters": []}, "ansible_processor": ["0", "GenuineIntel", "Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz"], "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGO2FpQMfT113vKnUUj+dATz9FyLsnR09mx1Jlb+5u6PUkUUHsaN9sbJRnilpcKFsxPZ+0V+xe09bujRdb/0CuM=", "ansible_user_gid": 0, "ansible_system_vendor": "Xen", "ansible_swaptotal_mb": 0, "ansible_distribution_major_version": "2", "ansible_real_group_id": 0, "ansible_lsb": {}, "ansible_machine": "x86_64", "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQC7hysOjkrmxfDhNB092Er1ceyQ87+KY1YLaVn1UMuVKBXWou81X5XNQYlCunlQoNSPZ5XDZwUksijMG1EaVZ6x+vrmHbEkj7tUftVkxuhU0n28FnXGK33W+Gphh4YHi+vW9ao02DFI7YL/JncXG6pyUC2JxtDLC8mbqHFu10cVvnR1zSGZGqMvNE06MwbrnV/AD5MDEnccXsLtk3JIm1ItSP6RSjPdCc7DazbSKZzQNnhDU5VJ6C0Qv8WYt7VOTy1dFX6naIJueAmwX1CQA532PirsyBuYEdZy8h2d5WTdI8Vk2PBdbVBDyLKofrNSy5D2uR+URgu4w+h6kD8hF3+h", "ansible_user_gecos": "root", "ansible_processor_threads_per_core": 1, "ansible_eth0": {"macaddress": "02:22:61:6c:e6:4c", "features": {"tx_checksum_ipv4": "on [fixed]", "generic_receive_offload": "on", "tx_checksum_ipv6": "on", "tx_scatter_gather_fraglist": "off [fixed]", "rx_all": "off [fixed]", "highdma": "off [fixed]", "rx_fcs": "off [fixed]", "tx_lockless": "off [fixed]", "tx_tcp_ecn_segmentation": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "tx_gso_robust": "on [fixed]", "tx_tcp_mangleid_segmentation": "off", "tx_ipxip4_segmentation": "off [fixed]", "tx_checksumming": "on", "vlan_challenged": "off [fixed]", "loopback": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "fcoe_mtu": "off [fixed]", "scatter_gather": "on", "tx_checksum_sctp": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "tx_gso_partial": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "large_receive_offload": "off [fixed]", "tx_scatter_gather": "on", "rx_checksumming": "on [fixed]", "tx_tcp_segmentation": "on", "netns_local": "off [fixed]", "tx_esp_segmentation": "off [fixed]", "generic_segmentation_offload": "on", "tx_udp_tnl_segmentation": "off [fixed]", "tcp_segmentation_offload": "on", "l2_fwd_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "tx_tcp6_segmentation": "on", "tx_udp_tnl_csum_segmentation": "off [fixed]", "udp_fragmentation_offload": "off", "tx_sctp_segmentation": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "hw_tc_offload": "off [fixed]", "tx_checksum_ip_generic": "off [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_nocache_copy": "off", "rx_vlan_filter": "off [fixed]", "tx_vlan_offload": "off [fixed]", "receive_hashing": "off [fixed]", "tx_gre_segmentation": "off [fixed]"}, "pciid": "vif-0", "module": "xen_netfront", "mtu": 9001, "device": "eth0", "promisc": false, "timestamping": ["rx_software", "software"], "ipv4": {"broadcast": "172.31.31.255", "netmask": "255.255.240.0", "network": "172.31.16.0", "address": "172.31.24.219"}, "ipv6": [{"scope": "link", "prefix": "64", "address": "fe80::22:61ff:fe6c:e64c"}], "active": true, "type": "ether", "hw_timestamp_filters": []}, "ansible_system": "Linux", "ansible_all_ipv4_addresses": ["172.17.0.1", "172.18.0.1", "172.19.0.1", "172.28.0.1", "172.31.24.219"], "ansible_python_version": "2.7.16", "ansible_product_version": "4.2.amazon", "ansible_service_mgr": "systemd", "ansible_memory_mb": {"real": {"total": 983, "used": 725, "free": 258}, "swap": {"cached": 0, "total": 0, "free": 0, "used": 0}, "nocache": {"used": 311, "free": 672}}, "ansible_user_dir": "/root", "gather_subset": ["all"], "ansible_real_user_id": 0, "ansible_virtualization_role": "guest", "ansible_dns": {"nameservers": ["172.31.0.2"], "search": ["ap-south-1.compute.internal"], "options": {"attempts": "5", "timeout": "2"}}, "ansible_effective_group_id": 0, "ansible_lo": {"features": {"tx_checksum_ipv4": "off [fixed]", "generic_receive_offload": "on", "tx_checksum_ipv6": "off [fixed]", "tx_scatter_gather_fraglist": "on [fixed]", "rx_all": "off [fixed]", "highdma": "on [fixed]", "rx_fcs": "off [fixed]", "tx_lockless": "on [fixed]", "tx_tcp_ecn_segmentation": "on", "rx_udp_tunnel_port_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "tx_gso_robust": "off [fixed]", "tx_tcp_mangleid_segmentation": "on", "tx_ipxip4_segmentation": "off [fixed]", "tx_checksumming": "on", "vlan_challenged": "on [fixed]", "loopback": "on [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "fcoe_mtu": "off [fixed]", "scatter_gather": "on", "tx_checksum_sctp": "on [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "tx_gso_partial": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "large_receive_offload": "off [fixed]", "tx_scatter_gather": "on [fixed]", "rx_checksumming": "on [fixed]", "tx_tcp_segmentation": "on", "netns_local": "on [fixed]", "tx_esp_segmentation": "off [fixed]", "generic_segmentation_offload": "on", "tx_udp_tnl_segmentation": "off [fixed]", "tcp_segmentation_offload": "on", "l2_fwd_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "tx_tcp6_segmentation": "on", "tx_udp_tnl_csum_segmentation": "off [fixed]", "udp_fragmentation_offload": "off", "tx_sctp_segmentation": "on", "tx_checksum_fcoe_crc": "off [fixed]", "hw_tc_offload": "off [fixed]", "tx_checksum_ip_generic": "on [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_nocache_copy": "off [fixed]", "rx_vlan_filter": "off [fixed]", "tx_vlan_offload": "off [fixed]", "receive_hashing": "off [fixed]", "tx_gre_segmentation": "off [fixed]"}, "hw_timestamp_filters": [], "mtu": 65536, "device": "lo", "promisc": false, "timestamping": ["tx_software", "rx_software", "software"], "ipv4": {"broadcast": "host", "netmask": "255.0.0.0", "network": "127.0.0.0", "address": "127.0.0.1"}, "ipv6": [{"scope": "host", "prefix": "128", "address": "::1"}], "active": true, "type": "loopback"}, "ansible_memtotal_mb": 983, "ansible_device_links": {"masters": {}, "labels": {"xvda1": ["\\\\x2f"]}, "ids": {}, "uuids": {"xvda1": ["e75a1891-3463-448b-8f59-5e3353af90ba"]}}, "ansible_apparmor": {"status": "disabled"}, "ansible_proc_cmdline": {"console": ["tty0", "ttyS0,115200n8"], "rd.emergency": "poweroff", "net.ifnames": "0", "biosdevname": "0", "rd.shell": "0", "BOOT_IMAGE": "/boot/vmlinuz-4.14.171-136.231.amzn2.x86_64", "ro": true, "root": "UUID=e75a1891-3463-448b-8f59-5e3353af90ba", "nvme_core.io_timeout": "4294967295"}, "ansible_memfree_mb": 258, "ansible_processor_count": 1, "ansible_hostname": "docker", "ansible_interfaces": ["docker0", "lo", "br-8b80ec3314fe", "docker_gwbridge", "br-6f05936f4caf", "eth0"], "ansible_selinux": {"status": "Missing selinux Python library"}, "ansible_fqdn": "docker", "ansible_mounts": [{"block_used": 845337, "uuid": "e75a1891-3463-448b-8f59-5e3353af90ba", "size_total": 8577331200, "block_total": 2094075, "mount": "/", "block_available": 1248738, "size_available": 5114830848, "fstype": "xfs", "inode_total": 4193216, "options": "rw,noatime,attr2,inode64,noquota", "device": "/dev/xvda1", "inode_used": 98632, "block_size": 4096, "inode_available": 4094584}], "ansible_nodename": "docker", "ansible_lvm": {"pvs": {}, "lvs": {}, "vgs": {}}, "ansible_domain": "", "ansible_distribution_file_path": "/etc/system-release", "ansible_virtualization_type": "xen", "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIDMI+OYZ7rInZ1DrCe88lr1I3qEstPy7ppwpXoHVj5Xq", "ansible_processor_cores": 1, "ansible_bios_version": "4.2.amazon", "ansible_date_time": {"weekday_number": "4", "iso8601_basic_short": "20200514T142136", "tz": "UTC", "weeknumber": "19", "hour": "14", "year": "2020", "minute": "21", "tz_offset": "+0000", "month": "05", "epoch": "1589466096", "iso8601_micro": "2020-05-14T14:21:36.568124Z", "weekday": "Thursday", "time": "14:21:36", "date": "2020-05-14", "iso8601": "2020-05-14T14:21:36Z", "day": "14", "iso8601_basic": "20200514T142136568035", "second": "36"}, "ansible_distribution_release": "NA", "ansible_os_family": "RedHat", "ansible_effective_user_id": 0, "ansible_br_8b80ec3314fe": {"macaddress": "02:42:d4:b1:02:4a", "features": {"tx_checksum_ipv4": "off [fixed]", "generic_receive_offload": "on", "tx_checksum_ipv6": "off [fixed]", "tx_scatter_gather_fraglist": "on", "rx_all": "off [fixed]", "highdma": "on", "rx_fcs": "off [fixed]", "tx_lockless": "on [fixed]", "tx_tcp_ecn_segmentation": "on", "rx_udp_tunnel_port_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "tx_gso_robust": "on", "tx_tcp_mangleid_segmentation": "on", "tx_ipxip4_segmentation": "on", "tx_checksumming": "on", "vlan_challenged": "off [fixed]", "loopback": "off [fixed]", "tx_ipxip6_segmentation": "on", "fcoe_mtu": "off [fixed]", "scatter_gather": "on", "tx_checksum_sctp": "off [fixed]", "tx_vlan_stag_hw_insert": "on", "rx_vlan_stag_hw_parse": "off [fixed]", "tx_gso_partial": "on", "rx_vlan_stag_filter": "off [fixed]", "large_receive_offload": "off [fixed]", "tx_scatter_gather": "on", "rx_checksumming": "off [fixed]", "tx_tcp_segmentation": "on", "netns_local": "on [fixed]", "tx_esp_segmentation": "on", "generic_segmentation_offload": "on", "tx_udp_tnl_segmentation": "on", "tcp_segmentation_offload": "on", "l2_fwd_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "tx_gre_csum_segmentation": "on", "esp_tx_csum_hw_offload": "off [fixed]", "tx_tcp6_segmentation": "on", "tx_udp_tnl_csum_segmentation": "on", "udp_fragmentation_offload": "off", "tx_sctp_segmentation": "on", "tx_checksum_fcoe_crc": "off [fixed]", "hw_tc_offload": "off [fixed]", "tx_checksum_ip_generic": "on", "tx_fcoe_segmentation": "on", "tx_nocache_copy": "off", "rx_vlan_filter": "off [fixed]", "tx_vlan_offload": "on", "receive_hashing": "off [fixed]", "tx_gre_segmentation": "on"}, "interfaces": [], "id": "8000.0242d4b1024a", "mtu": 1500, "device": "br-8b80ec3314fe", "promisc": false, "stp": false, "ipv4": {"broadcast": "172.18.255.255", "netmask": "255.255.0.0", "network": "172.18.0.0", "address": "172.18.0.1"}, "active": false, "timestamping": ["rx_software", "software"], "type": "bridge", "hw_timestamp_filters": []}, "ansible_product_name": "HVM domU", "ansible_devices": {"xvda": {"scheduler_mode": "noop", "rotational": "0", "vendor": null, "sectors": "16777216", "links": {"masters": [], "labels": [], "ids": [], "uuids": []}, "sas_device_handle": null, "sas_address": null, "virtual": 1, "host": "", "sectorsize": "512", "removable": "0", "support_discard": "0", "model": null, "partitions": {"xvda1": {"sectorsize": 512, "uuid": "e75a1891-3463-448b-8f59-5e3353af90ba", "links": {"masters": [], "labels": ["\\\\x2f"], "ids": [], "uuids": ["e75a1891-3463-448b-8f59-5e3353af90ba"]}, "sectors": "16773087", "start": "4096", "holders": [], "size": "8.00 GB"}}, "holders": [], "size": "8.00 GB"}}, "ansible_user_uid": 0, "ansible_bios_date": "08/24/2006", "ansible_system_capabilities": ["cap_chown", "cap_dac_override", "cap_dac_read_search", "cap_fowner", "cap_fsetid", "cap_kill", "cap_setgid", "cap_setuid", "cap_setpcap", "cap_linux_immutable", "cap_net_bind_service", "cap_net_broadcast", "cap_net_admin", "cap_net_raw", "cap_ipc_lock", "cap_ipc_owner", "cap_sys_module", "cap_sys_rawio", "cap_sys_chroot", "cap_sys_ptrace", "cap_sys_pacct", "cap_sys_admin", "cap_sys_boot", "cap_sys_nice", "cap_sys_resource", "cap_sys_time", "cap_sys_tty_config", "cap_mknod", "cap_lease", "cap_audit_write", "cap_audit_control", "cap_setfcap", "cap_mac_override", "cap_mac_admin", "cap_syslog", "35", "36", "37+ep"]}}\r\n', 'Shared connection to docker closed.\r\n')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'rm -f -r /root/.ansible/tmp/ansible-tmp-1589466095.38-4417-138824198167525/ > /dev/null 2>&1 && sleep 0'"'"''
+<docker> (0, '', '')
+[WARNING]: Platform linux on host docker is using the discovered Python interpreter at /usr/bin/python, but future installation of
+another Python interpreter could change this. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html
+for more information.
+ok: [docker]
+META: ran handlers
+
+TASK [docker-swarm-master : Checking the Yum update] ************************************************************************************
+task path: /etc/ansible/roles/docker-swarm-master/tasks/main.yml:4
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<docker> (0, '/root\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir /root/.ansible/tmp/ansible-tmp-1589466096.92-4561-129856042809039 && echo ansible-tmp-1589466096.92-4561-129856042809039="` echo /root/.ansible/tmp/ansible-tmp-1589466096.92-4561-129856042809039 `" ) && sleep 0'"'"''
+<docker> (0, 'ansible-tmp-1589466096.92-4561-129856042809039=/root/.ansible/tmp/ansible-tmp-1589466096.92-4561-129856042809039\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/packaging/os/yum.py
+<docker> PUT /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpr8dARu TO /root/.ansible/tmp/ansible-tmp-1589466096.92-4561-129856042809039/AnsiballZ_yum.py
+<docker> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 '[docker]'
+<docker> (0, 'sftp> put /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpr8dARu /root/.ansible/tmp/ansible-tmp-1589466096.92-4561-129856042809039/AnsiballZ_yum.py\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'chmod u+x /root/.ansible/tmp/ansible-tmp-1589466096.92-4561-129856042809039/ /root/.ansible/tmp/ansible-tmp-1589466096.92-4561-129856042809039/AnsiballZ_yum.py && sleep 0'"'"''
+<docker> (0, '', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 -tt docker '/bin/sh -c '"'"'/usr/bin/python /root/.ansible/tmp/ansible-tmp-1589466096.92-4561-129856042809039/AnsiballZ_yum.py && sleep 0'"'"''
+<docker> (0, '\r\n{"msg": "", "invocation": {"module_args": {"lock_timeout": 30, "update_cache": true, "disable_excludes": null, "exclude": [], "allow_downgrade": false, "disable_gpg_check": false, "conf_file": null, "use_backend": "auto", "state": "latest", "disablerepo": [], "releasever": null, "skip_broken": false, "autoremove": false, "download_dir": null, "enable_plugin": [], "installroot": "/", "install_weak_deps": true, "name": ["*"], "download_only": false, "bugfix": false, "list": null, "install_repoquery": true, "update_only": false, "disable_plugin": [], "enablerepo": [], "security": false, "validate_certs": true}}, "changed": false, "results": ["Nothing to do here, all packages are up to date"], "rc": 0}\r\n', 'Shared connection to docker closed.\r\n')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'rm -f -r /root/.ansible/tmp/ansible-tmp-1589466096.92-4561-129856042809039/ > /dev/null 2>&1 && sleep 0'"'"''
+<docker> (0, '', '')
+ok: [docker] => {
+    "changed": false, 
+    "invocation": {
+        "module_args": {
+            "allow_downgrade": false, 
+            "autoremove": false, 
+            "bugfix": false, 
+            "conf_file": null, 
+            "disable_excludes": null, 
+            "disable_gpg_check": false, 
+            "disable_plugin": [], 
+            "disablerepo": [], 
+            "download_dir": null, 
+            "download_only": false, 
+            "enable_plugin": [], 
+            "enablerepo": [], 
+            "exclude": [], 
+            "install_repoquery": true, 
+            "install_weak_deps": true, 
+            "installroot": "/", 
+            "list": null, 
+            "lock_timeout": 30, 
+            "name": [
+                "*"
+            ], 
+            "releasever": null, 
+            "security": false, 
+            "skip_broken": false, 
+            "state": "latest", 
+            "update_cache": true, 
+            "update_only": false, 
+            "use_backend": "auto", 
+            "validate_certs": true
+        }
+    }, 
+    "msg": "", 
+    "rc": 0, 
+    "results": [
+        "Nothing to do here, all packages are up to date"
+    ]
+}
+
+TASK [docker-swarm-master : debug] ******************************************************************************************************
+task path: /etc/ansible/roles/docker-swarm-master/tasks/main.yml:8
+ok: [docker] => {
+    "msg": "Packages Updated in Total is \"{u'msg': u'', 'failed': False, u'changed': False, u'results': [u'Nothing to do here, all packages are up to date'], u'rc': 0}\""
+}
+
+TASK [docker-swarm-master : Verifying if docker-CE is installed] ************************************************************************
+task path: /etc/ansible/roles/docker-swarm-master/tasks/main.yml:12
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<docker> (0, '/root\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir /root/.ansible/tmp/ansible-tmp-1589466111.25-4632-238010952094978 && echo ansible-tmp-1589466111.25-4632-238010952094978="` echo /root/.ansible/tmp/ansible-tmp-1589466111.25-4632-238010952094978 `" ) && sleep 0'"'"''
+<docker> (0, 'ansible-tmp-1589466111.25-4632-238010952094978=/root/.ansible/tmp/ansible-tmp-1589466111.25-4632-238010952094978\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/packaging/os/yum.py
+<docker> PUT /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpejOLmC TO /root/.ansible/tmp/ansible-tmp-1589466111.25-4632-238010952094978/AnsiballZ_yum.py
+<docker> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 '[docker]'
+<docker> (0, 'sftp> put /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpejOLmC /root/.ansible/tmp/ansible-tmp-1589466111.25-4632-238010952094978/AnsiballZ_yum.py\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'chmod u+x /root/.ansible/tmp/ansible-tmp-1589466111.25-4632-238010952094978/ /root/.ansible/tmp/ansible-tmp-1589466111.25-4632-238010952094978/AnsiballZ_yum.py && sleep 0'"'"''
+<docker> (0, '', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 -tt docker '/bin/sh -c '"'"'/usr/bin/python /root/.ansible/tmp/ansible-tmp-1589466111.25-4632-238010952094978/AnsiballZ_yum.py && sleep 0'"'"''
+<docker> (0, '\r\n{"msg": "", "invocation": {"module_args": {"lock_timeout": 30, "update_cache": true, "disable_excludes": null, "exclude": [], "allow_downgrade": false, "disable_gpg_check": false, "conf_file": null, "use_backend": "auto", "state": "present", "disablerepo": [], "releasever": null, "skip_broken": false, "autoremove": false, "download_dir": null, "enable_plugin": [], "installroot": "/", "install_weak_deps": true, "name": ["docker"], "download_only": false, "bugfix": false, "list": null, "install_repoquery": true, "update_only": false, "disable_plugin": [], "enablerepo": [], "security": false, "validate_certs": true}}, "changed": false, "results": ["docker-19.03.6ce-3.amzn2.x86_64 providing docker is already installed"], "rc": 0}\r\n', 'Shared connection to docker closed.\r\n')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'rm -f -r /root/.ansible/tmp/ansible-tmp-1589466111.25-4632-238010952094978/ > /dev/null 2>&1 && sleep 0'"'"''
+<docker> (0, '', '')
+ok: [docker] => {
+    "changed": false, 
+    "invocation": {
+        "module_args": {
+            "allow_downgrade": false, 
+            "autoremove": false, 
+            "bugfix": false, 
+            "conf_file": null, 
+            "disable_excludes": null, 
+            "disable_gpg_check": false, 
+            "disable_plugin": [], 
+            "disablerepo": [], 
+            "download_dir": null, 
+            "download_only": false, 
+            "enable_plugin": [], 
+            "enablerepo": [], 
+            "exclude": [], 
+            "install_repoquery": true, 
+            "install_weak_deps": true, 
+            "installroot": "/", 
+            "list": null, 
+            "lock_timeout": 30, 
+            "name": [
+                "docker"
+            ], 
+            "releasever": null, 
+            "security": false, 
+            "skip_broken": false, 
+            "state": "present", 
+            "update_cache": true, 
+            "update_only": false, 
+            "use_backend": "auto", 
+            "validate_certs": true
+        }
+    }, 
+    "msg": "", 
+    "rc": 0, 
+    "results": [
+        "docker-19.03.6ce-3.amzn2.x86_64 providing docker is already installed"
+    ]
+}
+
+TASK [docker-swarm-master : shell] ******************************************************************************************************
+task path: /etc/ansible/roles/docker-swarm-master/tasks/main.yml:15
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<docker> (0, '/root\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir /root/.ansible/tmp/ansible-tmp-1589466113.2-4695-83198098774169 && echo ansible-tmp-1589466113.2-4695-83198098774169="` echo /root/.ansible/tmp/ansible-tmp-1589466113.2-4695-83198098774169 `" ) && sleep 0'"'"''
+<docker> (0, 'ansible-tmp-1589466113.2-4695-83198098774169=/root/.ansible/tmp/ansible-tmp-1589466113.2-4695-83198098774169\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<docker> PUT /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmp3SjoQs TO /root/.ansible/tmp/ansible-tmp-1589466113.2-4695-83198098774169/AnsiballZ_command.py
+<docker> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 '[docker]'
+<docker> (0, 'sftp> put /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmp3SjoQs /root/.ansible/tmp/ansible-tmp-1589466113.2-4695-83198098774169/AnsiballZ_command.py\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'chmod u+x /root/.ansible/tmp/ansible-tmp-1589466113.2-4695-83198098774169/ /root/.ansible/tmp/ansible-tmp-1589466113.2-4695-83198098774169/AnsiballZ_command.py && sleep 0'"'"''
+<docker> (0, '', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 -tt docker '/bin/sh -c '"'"'/usr/bin/python /root/.ansible/tmp/ansible-tmp-1589466113.2-4695-83198098774169/AnsiballZ_command.py && sleep 0'"'"''
+<docker> (0, '\r\n{"changed": true, "end": "2020-05-14 14:21:53.884791", "stdout": " Version:           19.03.6-ce\\n  Version:          19.03.6-ce\\n  Version:          1.3.2\\n  Version:          1.0.0-rc10\\n  Version:          0.18.0", "cmd": "docker version | grep \'Version\'", "rc": 0, "start": "2020-05-14 14:21:53.693777", "stderr": "", "delta": "0:00:00.191014", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "docker version | grep \'Version\'", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to docker closed.\r\n')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'rm -f -r /root/.ansible/tmp/ansible-tmp-1589466113.2-4695-83198098774169/ > /dev/null 2>&1 && sleep 0'"'"''
+<docker> (0, '', '')
+changed: [docker] => {
+    "changed": true, 
+    "cmd": "docker version | grep 'Version'", 
+    "delta": "0:00:00.191014", 
+    "end": "2020-05-14 14:21:53.884791", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "docker version | grep 'Version'", 
+            "_uses_shell": true, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2020-05-14 14:21:53.693777", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": " Version:           19.03.6-ce\n  Version:          19.03.6-ce\n  Version:          1.3.2\n  Version:          1.0.0-rc10\n  Version:          0.18.0", 
+    "stdout_lines": [
+        " Version:           19.03.6-ce", 
+        "  Version:          19.03.6-ce", 
+        "  Version:          1.3.2", 
+        "  Version:          1.0.0-rc10", 
+        "  Version:          0.18.0"
+    ]
+}
+
+TASK [docker-swarm-master : debug] ******************************************************************************************************
+task path: /etc/ansible/roles/docker-swarm-master/tasks/main.yml:17
+ok: [docker] => {
+    "msg": "Docker Version on the Target Node is {'stderr_lines': [], u'changed': True, u'end': u'2020-05-14 14:21:53.884791', 'failed': False, u'stdout': u' Version:           19.03.6-ce\\n  Version:          19.03.6-ce\\n  Version:          1.3.2\\n  Version:          1.0.0-rc10\\n  Version:          0.18.0', u'cmd': u\"docker version | grep 'Version'\", u'rc': 0, u'start': u'2020-05-14 14:21:53.693777', u'stderr': u'', u'delta': u'0:00:00.191014', 'stdout_lines': [u' Version:           19.03.6-ce', u'  Version:          19.03.6-ce', u'  Version:          1.3.2', u'  Version:          1.0.0-rc10', u'  Version:          0.18.0']}"
+}
+
+TASK [docker-swarm-master : Check the Swarm cluster status in master node] **************************************************************
+task path: /etc/ansible/roles/docker-swarm-master/tasks/main.yml:21
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<docker> (0, '/root\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir /root/.ansible/tmp/ansible-tmp-1589466114.05-4769-61826304133638 && echo ansible-tmp-1589466114.05-4769-61826304133638="` echo /root/.ansible/tmp/ansible-tmp-1589466114.05-4769-61826304133638 `" ) && sleep 0'"'"''
+<docker> (0, 'ansible-tmp-1589466114.05-4769-61826304133638=/root/.ansible/tmp/ansible-tmp-1589466114.05-4769-61826304133638\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<docker> PUT /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmp9jxhX8 TO /root/.ansible/tmp/ansible-tmp-1589466114.05-4769-61826304133638/AnsiballZ_command.py
+<docker> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 '[docker]'
+<docker> (0, 'sftp> put /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmp9jxhX8 /root/.ansible/tmp/ansible-tmp-1589466114.05-4769-61826304133638/AnsiballZ_command.py\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'chmod u+x /root/.ansible/tmp/ansible-tmp-1589466114.05-4769-61826304133638/ /root/.ansible/tmp/ansible-tmp-1589466114.05-4769-61826304133638/AnsiballZ_command.py && sleep 0'"'"''
+<docker> (0, '', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 -tt docker '/bin/sh -c '"'"'/usr/bin/python /root/.ansible/tmp/ansible-tmp-1589466114.05-4769-61826304133638/AnsiballZ_command.py && sleep 0'"'"''
+<docker> (1, '\r\n{"changed": true, "end": "2020-05-14 14:21:54.372243", "stdout": "", "cmd": "docker node ls", "failed": true, "delta": "0:00:00.056464", "stderr": "Error response from daemon: This node is not a swarm manager. Use \\"docker swarm init\\" or \\"docker swarm join\\" to connect this node to swarm and try again.", "rc": 1, "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "docker node ls", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}, "start": "2020-05-14 14:21:54.315779", "msg": "non-zero return code"}\r\n', 'Shared connection to docker closed.\r\n')
+<docker> Failed to connect to the host via ssh: Shared connection to docker closed.
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'rm -f -r /root/.ansible/tmp/ansible-tmp-1589466114.05-4769-61826304133638/ > /dev/null 2>&1 && sleep 0'"'"''
+<docker> (0, '', '')
+fatal: [docker]: FAILED! => {
+    "changed": true, 
+    "cmd": "docker node ls", 
+    "delta": "0:00:00.056464", 
+    "end": "2020-05-14 14:21:54.372243", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "docker node ls", 
+            "_uses_shell": true, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "msg": "non-zero return code", 
+    "rc": 1, 
+    "start": "2020-05-14 14:21:54.315779", 
+    "stderr": "Error response from daemon: This node is not a swarm manager. Use \"docker swarm init\" or \"docker swarm join\" to connect this node to swarm and try again.", 
+    "stderr_lines": [
+        "Error response from daemon: This node is not a swarm manager. Use \"docker swarm init\" or \"docker swarm join\" to connect this node to swarm and try again."
+    ], 
+    "stdout": "", 
+    "stdout_lines": []
+}
+...ignoring
+
+TASK [docker-swarm-master : Creating a new Swarm cluster if not exist] ******************************************************************
+task path: /etc/ansible/roles/docker-swarm-master/tasks/main.yml:28
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<docker> (0, '/root\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir /root/.ansible/tmp/ansible-tmp-1589466114.52-4832-92925447226243 && echo ansible-tmp-1589466114.52-4832-92925447226243="` echo /root/.ansible/tmp/ansible-tmp-1589466114.52-4832-92925447226243 `" ) && sleep 0'"'"''
+<docker> (0, 'ansible-tmp-1589466114.52-4832-92925447226243=/root/.ansible/tmp/ansible-tmp-1589466114.52-4832-92925447226243\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<docker> PUT /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpM9_GXW TO /root/.ansible/tmp/ansible-tmp-1589466114.52-4832-92925447226243/AnsiballZ_command.py
+<docker> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 '[docker]'
+<docker> (0, 'sftp> put /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpM9_GXW /root/.ansible/tmp/ansible-tmp-1589466114.52-4832-92925447226243/AnsiballZ_command.py\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'chmod u+x /root/.ansible/tmp/ansible-tmp-1589466114.52-4832-92925447226243/ /root/.ansible/tmp/ansible-tmp-1589466114.52-4832-92925447226243/AnsiballZ_command.py && sleep 0'"'"''
+<docker> (0, '', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 -tt docker '/bin/sh -c '"'"'/usr/bin/python /root/.ansible/tmp/ansible-tmp-1589466114.52-4832-92925447226243/AnsiballZ_command.py && sleep 0'"'"''
+<docker> (0, '\r\n{"changed": true, "end": "2020-05-14 14:21:55.433224", "stdout": "Swarm initialized: current node (31ch0gy3x6adyooylkdoqul69) is now a manager.\\n\\nTo add a worker to this swarm, run the following command:\\n\\n    docker swarm join --token SWMTKN-1-4t1a1uie4o9eo5k5ix9vfdrzg2h4670xl2unpvi9yfljg08g5k-ay6bbw4j0smy5y3s8o9687obv 172.31.24.219:2377\\n\\nTo add a manager to this swarm, run \'docker swarm join-token manager\' and follow the instructions.", "cmd": "docker swarm init --advertise-addr=172.31.24.219:2377", "rc": 0, "start": "2020-05-14 14:21:54.788557", "stderr": "", "delta": "0:00:00.644667", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "docker swarm init --advertise-addr=172.31.24.219:2377", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to docker closed.\r\n')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'rm -f -r /root/.ansible/tmp/ansible-tmp-1589466114.52-4832-92925447226243/ > /dev/null 2>&1 && sleep 0'"'"''
+<docker> (0, '', '')
+changed: [docker] => {
+    "changed": true, 
+    "cmd": "docker swarm init --advertise-addr=172.31.24.219:2377", 
+    "delta": "0:00:00.644667", 
+    "end": "2020-05-14 14:21:55.433224", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "docker swarm init --advertise-addr=172.31.24.219:2377", 
+            "_uses_shell": true, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2020-05-14 14:21:54.788557", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": "Swarm initialized: current node (31ch0gy3x6adyooylkdoqul69) is now a manager.\n\nTo add a worker to this swarm, run the following command:\n\n    docker swarm join --token SWMTKN-1-4t1a1uie4o9eo5k5ix9vfdrzg2h4670xl2unpvi9yfljg08g5k-ay6bbw4j0smy5y3s8o9687obv 172.31.24.219:2377\n\nTo add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.", 
+    "stdout_lines": [
+        "Swarm initialized: current node (31ch0gy3x6adyooylkdoqul69) is now a manager.", 
+        "", 
+        "To add a worker to this swarm, run the following command:", 
+        "", 
+        "    docker swarm join --token SWMTKN-1-4t1a1uie4o9eo5k5ix9vfdrzg2h4670xl2unpvi9yfljg08g5k-ay6bbw4j0smy5y3s8o9687obv 172.31.24.219:2377", 
+        "", 
+        "To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions."
+    ]
+}
+
+TASK [docker-swarm-master : Fetching the Manager token] *********************************************************************************
+task path: /etc/ansible/roles/docker-swarm-master/tasks/main.yml:35
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<docker> (0, '/root\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir /root/.ansible/tmp/ansible-tmp-1589466115.58-4909-102914721006756 && echo ansible-tmp-1589466115.58-4909-102914721006756="` echo /root/.ansible/tmp/ansible-tmp-1589466115.58-4909-102914721006756 `" ) && sleep 0'"'"''
+<docker> (0, 'ansible-tmp-1589466115.58-4909-102914721006756=/root/.ansible/tmp/ansible-tmp-1589466115.58-4909-102914721006756\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<docker> PUT /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpx87RP2 TO /root/.ansible/tmp/ansible-tmp-1589466115.58-4909-102914721006756/AnsiballZ_command.py
+<docker> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 '[docker]'
+<docker> (0, 'sftp> put /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpx87RP2 /root/.ansible/tmp/ansible-tmp-1589466115.58-4909-102914721006756/AnsiballZ_command.py\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'chmod u+x /root/.ansible/tmp/ansible-tmp-1589466115.58-4909-102914721006756/ /root/.ansible/tmp/ansible-tmp-1589466115.58-4909-102914721006756/AnsiballZ_command.py && sleep 0'"'"''
+<docker> (0, '', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 -tt docker '/bin/sh -c '"'"'/usr/bin/python /root/.ansible/tmp/ansible-tmp-1589466115.58-4909-102914721006756/AnsiballZ_command.py && sleep 0'"'"''
+<docker> (0, '\r\n{"changed": true, "end": "2020-05-14 14:21:56.264588", "stdout": "SWMTKN-1-4t1a1uie4o9eo5k5ix9vfdrzg2h4670xl2unpvi9yfljg08g5k-dds04kv73xd9ail7wgzhiiikq", "cmd": "docker swarm join-token --quiet manager", "rc": 0, "start": "2020-05-14 14:21:56.149547", "stderr": "", "delta": "0:00:00.115041", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "docker swarm join-token --quiet manager", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to docker closed.\r\n')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'rm -f -r /root/.ansible/tmp/ansible-tmp-1589466115.58-4909-102914721006756/ > /dev/null 2>&1 && sleep 0'"'"''
+<docker> (0, '', '')
+changed: [docker] => {
+    "changed": true, 
+    "cmd": "docker swarm join-token --quiet manager", 
+    "delta": "0:00:00.115041", 
+    "end": "2020-05-14 14:21:56.264588", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "docker swarm join-token --quiet manager", 
+            "_uses_shell": true, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2020-05-14 14:21:56.149547", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": "SWMTKN-1-4t1a1uie4o9eo5k5ix9vfdrzg2h4670xl2unpvi9yfljg08g5k-dds04kv73xd9ail7wgzhiiikq", 
+    "stdout_lines": [
+        "SWMTKN-1-4t1a1uie4o9eo5k5ix9vfdrzg2h4670xl2unpvi9yfljg08g5k-dds04kv73xd9ail7wgzhiiikq"
+    ]
+}
+
+TASK [docker-swarm-master : Fetching the Worker token] **********************************************************************************
+task path: /etc/ansible/roles/docker-swarm-master/tasks/main.yml:41
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<docker> (0, '/root\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir /root/.ansible/tmp/ansible-tmp-1589466116.49-5026-60198469937954 && echo ansible-tmp-1589466116.49-5026-60198469937954="` echo /root/.ansible/tmp/ansible-tmp-1589466116.49-5026-60198469937954 `" ) && sleep 0'"'"''
+<docker> (0, 'ansible-tmp-1589466116.49-5026-60198469937954=/root/.ansible/tmp/ansible-tmp-1589466116.49-5026-60198469937954\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<docker> PUT /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpU_SNJ3 TO /root/.ansible/tmp/ansible-tmp-1589466116.49-5026-60198469937954/AnsiballZ_command.py
+<docker> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 '[docker]'
+<docker> (0, 'sftp> put /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpU_SNJ3 /root/.ansible/tmp/ansible-tmp-1589466116.49-5026-60198469937954/AnsiballZ_command.py\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'chmod u+x /root/.ansible/tmp/ansible-tmp-1589466116.49-5026-60198469937954/ /root/.ansible/tmp/ansible-tmp-1589466116.49-5026-60198469937954/AnsiballZ_command.py && sleep 0'"'"''
+<docker> (0, '', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 -tt docker '/bin/sh -c '"'"'/usr/bin/python /root/.ansible/tmp/ansible-tmp-1589466116.49-5026-60198469937954/AnsiballZ_command.py && sleep 0'"'"''
+<docker> (0, '\r\n{"changed": true, "end": "2020-05-14 14:21:57.012475", "stdout": "SWMTKN-1-4t1a1uie4o9eo5k5ix9vfdrzg2h4670xl2unpvi9yfljg08g5k-ay6bbw4j0smy5y3s8o9687obv", "cmd": "docker swarm join-token --quiet worker", "rc": 0, "start": "2020-05-14 14:21:56.954046", "stderr": "", "delta": "0:00:00.058429", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "docker swarm join-token --quiet worker", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to docker closed.\r\n')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'rm -f -r /root/.ansible/tmp/ansible-tmp-1589466116.49-5026-60198469937954/ > /dev/null 2>&1 && sleep 0'"'"''
+<docker> (0, '', '')
+changed: [docker] => {
+    "changed": true, 
+    "cmd": "docker swarm join-token --quiet worker", 
+    "delta": "0:00:00.058429", 
+    "end": "2020-05-14 14:21:57.012475", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "docker swarm join-token --quiet worker", 
+            "_uses_shell": true, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2020-05-14 14:21:56.954046", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": "SWMTKN-1-4t1a1uie4o9eo5k5ix9vfdrzg2h4670xl2unpvi9yfljg08g5k-ay6bbw4j0smy5y3s8o9687obv", 
+    "stdout_lines": [
+        "SWMTKN-1-4t1a1uie4o9eo5k5ix9vfdrzg2h4670xl2unpvi9yfljg08g5k-ay6bbw4j0smy5y3s8o9687obv"
+    ]
+}
+
+TASK [docker-swarm-master : Veryfing the swarm cluster initialization status] ***********************************************************
+task path: /etc/ansible/roles/docker-swarm-master/tasks/main.yml:47
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<docker> (0, '/root\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir /root/.ansible/tmp/ansible-tmp-1589466117.11-5134-122564621276464 && echo ansible-tmp-1589466117.11-5134-122564621276464="` echo /root/.ansible/tmp/ansible-tmp-1589466117.11-5134-122564621276464 `" ) && sleep 0'"'"''
+<docker> (0, 'ansible-tmp-1589466117.11-5134-122564621276464=/root/.ansible/tmp/ansible-tmp-1589466117.11-5134-122564621276464\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<docker> PUT /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpDITPgs TO /root/.ansible/tmp/ansible-tmp-1589466117.11-5134-122564621276464/AnsiballZ_command.py
+<docker> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 '[docker]'
+<docker> (0, 'sftp> put /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpDITPgs /root/.ansible/tmp/ansible-tmp-1589466117.11-5134-122564621276464/AnsiballZ_command.py\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'chmod u+x /root/.ansible/tmp/ansible-tmp-1589466117.11-5134-122564621276464/ /root/.ansible/tmp/ansible-tmp-1589466117.11-5134-122564621276464/AnsiballZ_command.py && sleep 0'"'"''
+<docker> (0, '', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 -tt docker '/bin/sh -c '"'"'/usr/bin/python /root/.ansible/tmp/ansible-tmp-1589466117.11-5134-122564621276464/AnsiballZ_command.py && sleep 0'"'"''
+<docker> (0, '\r\n{"changed": true, "end": "2020-05-14 14:21:57.454179", "stdout": "ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS      ENGINE VERSION\\n31ch0gy3x6adyooylkdoqul69 *   docker              Ready               Active              Leader              19.03.6-ce", "cmd": "docker node ls", "rc": 0, "start": "2020-05-14 14:21:57.386883", "stderr": "", "delta": "0:00:00.067296", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "docker node ls", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to docker closed.\r\n')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'rm -f -r /root/.ansible/tmp/ansible-tmp-1589466117.11-5134-122564621276464/ > /dev/null 2>&1 && sleep 0'"'"''
+<docker> (0, '', '')
+changed: [docker] => {
+    "changed": true, 
+    "cmd": "docker node ls", 
+    "delta": "0:00:00.067296", 
+    "end": "2020-05-14 14:21:57.454179", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "docker node ls", 
+            "_uses_shell": true, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2020-05-14 14:21:57.386883", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": "ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS      ENGINE VERSION\n31ch0gy3x6adyooylkdoqul69 *   docker              Ready               Active              Leader              19.03.6-ce", 
+    "stdout_lines": [
+        "ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS      ENGINE VERSION", 
+        "31ch0gy3x6adyooylkdoqul69 *   docker              Ready               Active              Leader              19.03.6-ce"
+    ]
+}
+
+TASK [docker-swarm-master : copy] *******************************************************************************************************
+task path: /etc/ansible/roles/docker-swarm-master/tasks/main.yml:50
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<docker> (0, '/root\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318 && echo ansible-tmp-1589466117.56-5205-134817289593318="` echo /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318 `" ) && sleep 0'"'"''
+<docker> (0, 'ansible-tmp-1589466117.56-5205-134817289593318=/root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/files/stat.py
+<docker> PUT /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpSbZy_V TO /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318/AnsiballZ_stat.py
+<docker> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 '[docker]'
+<docker> (0, 'sftp> put /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpSbZy_V /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318/AnsiballZ_stat.py\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'chmod u+x /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318/ /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318/AnsiballZ_stat.py && sleep 0'"'"''
+<docker> (0, '', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 -tt docker '/bin/sh -c '"'"'/usr/bin/python /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318/AnsiballZ_stat.py && sleep 0'"'"''
+<docker> (0, '\r\n{"invocation": {"module_args": {"checksum_algorithm": "sha1", "get_checksum": true, "follow": false, "path": "/opt", "get_md5": false, "get_mime": true, "get_attributes": true}}, "stat": {"charset": "binary", "uid": 0, "exists": true, "attr_flags": "", "woth": false, "isreg": false, "device_type": 0, "mtime": 1589464497.3121629, "block_size": 4096, "inode": 81678, "isgid": false, "size": 106, "executable": true, "isuid": false, "readable": true, "version": "18446744072933574359", "pw_name": "root", "gid": 0, "ischr": false, "wusr": true, "writeable": true, "mimetype": "inode/directory", "blocks": 0, "xoth": true, "islnk": false, "nlink": 7, "issock": false, "rgrp": true, "gr_name": "root", "path": "/opt", "xusr": true, "atime": 1583552647.7643356, "isdir": true, "ctime": 1589464497.3121629, "isblk": false, "wgrp": false, "xgrp": true, "dev": 51713, "roth": true, "isfifo": false, "mode": "0755", "rusr": true, "attributes": []}, "changed": false}\r\n', 'Shared connection to docker closed.\r\n')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/files/stat.py
+<docker> PUT /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpeiVDwK TO /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318/AnsiballZ_stat.py
+<docker> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 '[docker]'
+<docker> (0, 'sftp> put /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpeiVDwK /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318/AnsiballZ_stat.py\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'chmod u+x /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318/ /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318/AnsiballZ_stat.py && sleep 0'"'"''
+<docker> (0, '', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 -tt docker '/bin/sh -c '"'"'/usr/bin/python /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318/AnsiballZ_stat.py && sleep 0'"'"''
+<docker> (0, '\r\n{"invocation": {"module_args": {"checksum_algorithm": "sha1", "get_checksum": true, "follow": false, "path": "/opt/dockerswarminit", "get_md5": false, "get_mime": true, "get_attributes": true}}, "stat": {"charset": "us-ascii", "uid": 0, "exists": true, "attr_flags": "", "woth": false, "isreg": true, "device_type": 0, "mtime": 1589464496.9201698, "block_size": 4096, "inode": 1424818, "isgid": false, "size": 73, "executable": false, "isuid": false, "readable": true, "version": "18446744072565611964", "pw_name": "root", "gid": 0, "ischr": false, "wusr": true, "writeable": true, "mimetype": "text/plain", "blocks": 8, "xoth": false, "islnk": false, "nlink": 1, "issock": false, "rgrp": true, "gr_name": "root", "path": "/opt/dockerswarminit", "xusr": false, "atime": 1589464496.9201698, "isdir": false, "ctime": 1589464497.3121629, "isblk": false, "wgrp": false, "checksum": "165b6a1544f8e43a31162e5062f7299cdfdb4e8b", "dev": 51713, "roth": true, "isfifo": false, "mode": "0644", "xgrp": false, "rusr": true, "attributes": []}, "changed": false}\r\n', 'Shared connection to docker closed.\r\n')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/files/file.py
+<docker> PUT /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpFrsUoH TO /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318/AnsiballZ_file.py
+<docker> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 '[docker]'
+<docker> (0, 'sftp> put /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpFrsUoH /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318/AnsiballZ_file.py\n', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'chmod u+x /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318/ /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318/AnsiballZ_file.py && sleep 0'"'"''
+<docker> (0, '', '')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 -tt docker '/bin/sh -c '"'"'/usr/bin/python /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318/AnsiballZ_file.py && sleep 0'"'"''
+<docker> (0, '\r\n{"group": "root", "uid": 0, "changed": false, "owner": "root", "state": "file", "gid": 0, "mode": "0644", "path": "/opt/dockerswarminit", "invocation": {"module_args": {"directory_mode": null, "force": false, "remote_src": null, "_original_basename": "dockerswarminit", "path": "/opt/dockerswarminit", "owner": null, "follow": true, "group": null, "unsafe_writes": null, "setype": null, "content": null, "serole": null, "selevel": null, "state": "file", "dest": "/opt", "access_time": null, "access_time_format": "%Y%m%d%H%M.%S", "modification_time": null, "regexp": null, "src": null, "seuser": null, "recurse": false, "_diff_peek": null, "delimiter": null, "mode": null, "modification_time_format": "%Y%m%d%H%M.%S", "attributes": null, "backup": null}}, "diff": {"after": {"path": "/opt/dockerswarminit"}, "before": {"path": "/opt/dockerswarminit"}}, "size": 73}\r\n', 'Shared connection to docker closed.\r\n')
+<docker> ESTABLISH SSH CONNECTION FOR USER: None
+<docker> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/86c5b37ce8 docker '/bin/sh -c '"'"'rm -f -r /root/.ansible/tmp/ansible-tmp-1589466117.56-5205-134817289593318/ > /dev/null 2>&1 && sleep 0'"'"''
+<docker> (0, '', '')
+ok: [docker] => {
+    "changed": false, 
+    "checksum": "165b6a1544f8e43a31162e5062f7299cdfdb4e8b", 
+    "dest": "/opt/dockerswarminit", 
+    "diff": {
+        "after": {
+            "path": "/opt/dockerswarminit"
+        }, 
+        "before": {
+            "path": "/opt/dockerswarminit"
+        }
+    }, 
+    "gid": 0, 
+    "group": "root", 
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null, 
+            "_original_basename": "dockerswarminit", 
+            "access_time": null, 
+            "access_time_format": "%Y%m%d%H%M.%S", 
+            "attributes": null, 
+            "backup": null, 
+            "content": null, 
+            "delimiter": null, 
+            "dest": "/opt", 
+            "directory_mode": null, 
+            "follow": true, 
+            "force": false, 
+            "group": null, 
+            "mode": null, 
+            "modification_time": null, 
+            "modification_time_format": "%Y%m%d%H%M.%S", 
+            "owner": null, 
+            "path": "/opt/dockerswarminit", 
+            "recurse": false, 
+            "regexp": null, 
+            "remote_src": null, 
+            "selevel": null, 
+            "serole": null, 
+            "setype": null, 
+            "seuser": null, 
+            "src": null, 
+            "state": "file", 
+            "unsafe_writes": null
+        }
+    }, 
+    "mode": "0644", 
+    "owner": "root", 
+    "path": "/opt/dockerswarminit", 
+    "size": 73, 
+    "state": "file", 
+    "uid": 0
+}
+
+TASK [docker-swarm-master : debug] ******************************************************************************************************
+task path: /etc/ansible/roles/docker-swarm-master/tasks/main.yml:54
+ok: [docker] => {
+    "msg": "Node status is {'stderr_lines': [], u'changed': True, u'end': u'2020-05-14 14:21:57.454179', 'failed': False, u'stdout': u'ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS      ENGINE VERSION\\n31ch0gy3x6adyooylkdoqul69 *   docker              Ready               Active              Leader              19.03.6-ce', u'cmd': u'docker node ls', u'rc': 0, u'start': u'2020-05-14 14:21:57.386883', u'stderr': u'', u'delta': u'0:00:00.067296', 'stdout_lines': [u'ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS      ENGINE VERSION', u'31ch0gy3x6adyooylkdoqul69 *   docker              Ready               Active              Leader              19.03.6-ce']}"
+}
+META: ran handlers
+META: ran handlers
+
+PLAY [Add Worker Node to Master Node] ***************************************************************************************************
+
+TASK [Gathering Facts] ******************************************************************************************************************
+task path: /etc/ansible/swarm-init.yml:9
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<tomcat> (0, '/root\n', '')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir /root/.ansible/tmp/ansible-tmp-1589466118.96-5329-192945674180943 && echo ansible-tmp-1589466118.96-5329-192945674180943="` echo /root/.ansible/tmp/ansible-tmp-1589466118.96-5329-192945674180943 `" ) && sleep 0'"'"''
+<tomcat> (0, 'ansible-tmp-1589466118.96-5329-192945674180943=/root/.ansible/tmp/ansible-tmp-1589466118.96-5329-192945674180943\n', '')
+<tomcat> Attempting python interpreter discovery
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'echo PLATFORM; uname; echo FOUND; command -v '"'"'"'"'"'"'"'"'/usr/bin/python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.5'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/libexec/platform-python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''
+<tomcat> (0, 'PLATFORM\nLinux\nFOUND\n/usr/bin/python\n/usr/bin/python3.7\n/usr/bin/python2.7\n/usr/bin/python3\n/usr/bin/python\nENDFOUND\n', '')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'/usr/bin/python && sleep 0'"'"''
+<tomcat> (0, '{"osrelease_content": "NAME=\\"Amazon Linux\\"\\nVERSION=\\"2\\"\\nID=\\"amzn\\"\\nID_LIKE=\\"centos rhel fedora\\"\\nVERSION_ID=\\"2\\"\\nPRETTY_NAME=\\"Amazon Linux 2\\"\\nANSI_COLOR=\\"0;33\\"\\nCPE_NAME=\\"cpe:2.3:o:amazon:amazon_linux:2\\"\\nHOME_URL=\\"https://amazonlinux.com/\\"\\n", "platform_dist_result": ["", "", ""]}\n', '')
+<tomcat> Python interpreter discovery fallback (unsupported Linux distribution: amzn)
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/system/setup.py
+<tomcat> PUT /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpfx_vZL TO /root/.ansible/tmp/ansible-tmp-1589466118.96-5329-192945674180943/AnsiballZ_setup.py
+<tomcat> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 '[tomcat]'
+<tomcat> (0, 'sftp> put /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpfx_vZL /root/.ansible/tmp/ansible-tmp-1589466118.96-5329-192945674180943/AnsiballZ_setup.py\n', '')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'chmod u+x /root/.ansible/tmp/ansible-tmp-1589466118.96-5329-192945674180943/ /root/.ansible/tmp/ansible-tmp-1589466118.96-5329-192945674180943/AnsiballZ_setup.py && sleep 0'"'"''
+<tomcat> (0, '', '')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 -tt tomcat '/bin/sh -c '"'"'/usr/bin/python /root/.ansible/tmp/ansible-tmp-1589466118.96-5329-192945674180943/AnsiballZ_setup.py && sleep 0'"'"''
+<tomcat> (0, '\r\n{"invocation": {"module_args": {"filter": "*", "gather_subset": ["all"], "fact_path": "/etc/ansible/facts.d", "gather_timeout": 10}}, "ansible_facts": {"ansible_fibre_channel_wwn": [], "module_setup": true, "ansible_distribution_version": "2", "ansible_distribution_file_variety": "Amazon", "ansible_env": {"LANG": "en_US.UTF-8", "TERM": "xterm", "SHELL": "/bin/bash", "XDG_RUNTIME_DIR": "/run/user/0", "SHLVL": "2", "SSH_TTY": "/dev/pts/5", "PWD": "/root", "LESSOPEN": "||/usr/bin/lesspipe.sh %s", "XDG_SESSION_ID": "58", "SSH_CLIENT": "172.31.24.219 40836 22", "LOGNAME": "root", "USER": "root", "MAIL": "/var/mail/root", "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin", "LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:", "HOME": "/root", "_": "/usr/bin/python", "SSH_CONNECTION": "172.31.24.219 40836 172.31.2.218 22"}, "ansible_userspace_bits": "64", "ansible_architecture": "x86_64", "ansible_default_ipv4": {"macaddress": "0a:32:a8:52:6b:26", "network": "172.31.0.0", "mtu": 9001, "broadcast": "172.31.15.255", "alias": "eth0", "netmask": "255.255.240.0", "address": "172.31.2.218", "interface": "eth0", "type": "ether", "gateway": "172.31.0.1"}, "ansible_swapfree_mb": 0, "ansible_default_ipv6": {}, "ansible_cmdline": {"console": "ttyS0,115200n8", "rd.emergency": "poweroff", "net.ifnames": "0", "biosdevname": "0", "rd.shell": "0", "BOOT_IMAGE": "/boot/vmlinuz-4.14.171-136.231.amzn2.x86_64", "ro": true, "root": "UUID=e75a1891-3463-448b-8f59-5e3353af90ba", "nvme_core.io_timeout": "4294967295"}, "ansible_machine_id": "ec214dee1f497e5a0c3f972da49e4684", "ansible_userspace_architecture": "x86_64", "ansible_product_uuid": "EC274AB2-4300-867C-C94C-6C84FDE9A330", "ansible_pkg_mgr": "yum", "ansible_docker_gwbridge": {"macaddress": "02:42:7e:5c:98:ea", "features": {"tx_checksum_ipv4": "off [fixed]", "generic_receive_offload": "on", "tx_checksum_ipv6": "off [fixed]", "tx_scatter_gather_fraglist": "on", "rx_all": "off [fixed]", "highdma": "on", "rx_fcs": "off [fixed]", "tx_lockless": "on [fixed]", "tx_tcp_ecn_segmentation": "on", "rx_udp_tunnel_port_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "tx_gso_robust": "on", "tx_tcp_mangleid_segmentation": "on", "tx_ipxip4_segmentation": "on", "tx_checksumming": "on", "vlan_challenged": "off [fixed]", "loopback": "off [fixed]", "tx_ipxip6_segmentation": "on", "fcoe_mtu": "off [fixed]", "scatter_gather": "on", "tx_checksum_sctp": "off [fixed]", "tx_vlan_stag_hw_insert": "on", "rx_vlan_stag_hw_parse": "off [fixed]", "tx_gso_partial": "on", "rx_vlan_stag_filter": "off [fixed]", "large_receive_offload": "off [fixed]", "tx_scatter_gather": "on", "rx_checksumming": "off [fixed]", "tx_tcp_segmentation": "on", "netns_local": "on [fixed]", "tx_esp_segmentation": "on", "generic_segmentation_offload": "on", "tx_udp_tnl_segmentation": "on", "tcp_segmentation_offload": "on", "l2_fwd_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "tx_gre_csum_segmentation": "on", "esp_tx_csum_hw_offload": "off [fixed]", "tx_tcp6_segmentation": "on", "tx_udp_tnl_csum_segmentation": "on", "udp_fragmentation_offload": "off", "tx_sctp_segmentation": "on", "tx_checksum_fcoe_crc": "off [fixed]", "hw_tc_offload": "off [fixed]", "tx_checksum_ip_generic": "on", "tx_fcoe_segmentation": "on", "tx_nocache_copy": "off", "rx_vlan_filter": "off [fixed]", "tx_vlan_offload": "on", "receive_hashing": "off [fixed]", "tx_gre_segmentation": "on"}, "interfaces": [], "id": "8000.02427e5c98ea", "mtu": 1500, "device": "docker_gwbridge", "promisc": false, "stp": false, "ipv4": {"broadcast": "172.18.255.255", "netmask": "255.255.0.0", "network": "172.18.0.0", "address": "172.18.0.1"}, "ipv6": [{"scope": "link", "prefix": "64", "address": "fe80::42:7eff:fe5c:98ea"}], "active": false, "timestamping": ["rx_software", "software"], "type": "bridge", "hw_timestamp_filters": []}, "ansible_distribution": "Amazon", "ansible_iscsi_iqn": "", "ansible_all_ipv6_addresses": ["fe80::42:7eff:fe5c:98ea", "fe80::832:a8ff:fe52:6b26"], "ansible_uptime_seconds": 13107, "ansible_kernel": "4.14.171-136.231.amzn2.x86_64", "ansible_system_capabilities_enforced": "True", "ansible_python": {"executable": "/usr/bin/python", "version": {"micro": 16, "major": 2, "releaselevel": "final", "serial": 0, "minor": 7}, "type": "CPython", "has_sslcontext": true, "version_info": [2, 7, 16, "final", 0]}, "ansible_is_chroot": false, "ansible_hostnqn": "", "ansible_user_shell": "/bin/bash", "ansible_product_serial": "ec274ab2-4300-867c-c94c-6c84fde9a330", "ansible_form_factor": "Other", "ansible_distribution_file_parsed": true, "ansible_fips": false, "ansible_user_id": "root", "ansible_selinux_python_present": false, "ansible_kernel_version": "#1 SMP Thu Feb 27 20:22:48 UTC 2020", "ansible_local": {}, "ansible_processor_vcpus": 1, "ansible_docker0": {"macaddress": "02:42:40:af:11:87", "features": {"tx_checksum_ipv4": "off [fixed]", "generic_receive_offload": "on", "tx_checksum_ipv6": "off [fixed]", "tx_scatter_gather_fraglist": "on", "rx_all": "off [fixed]", "highdma": "on", "rx_fcs": "off [fixed]", "tx_lockless": "on [fixed]", "tx_tcp_ecn_segmentation": "on", "rx_udp_tunnel_port_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "tx_gso_robust": "on", "tx_tcp_mangleid_segmentation": "on", "tx_ipxip4_segmentation": "on", "tx_checksumming": "on", "vlan_challenged": "off [fixed]", "loopback": "off [fixed]", "tx_ipxip6_segmentation": "on", "fcoe_mtu": "off [fixed]", "scatter_gather": "on", "tx_checksum_sctp": "off [fixed]", "tx_vlan_stag_hw_insert": "on", "rx_vlan_stag_hw_parse": "off [fixed]", "tx_gso_partial": "on", "rx_vlan_stag_filter": "off [fixed]", "large_receive_offload": "off [fixed]", "tx_scatter_gather": "on", "rx_checksumming": "off [fixed]", "tx_tcp_segmentation": "on", "netns_local": "on [fixed]", "tx_esp_segmentation": "on", "generic_segmentation_offload": "on", "tx_udp_tnl_segmentation": "on", "tcp_segmentation_offload": "on", "l2_fwd_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "tx_gre_csum_segmentation": "on", "esp_tx_csum_hw_offload": "off [fixed]", "tx_tcp6_segmentation": "on", "tx_udp_tnl_csum_segmentation": "on", "udp_fragmentation_offload": "off", "tx_sctp_segmentation": "on", "tx_checksum_fcoe_crc": "off [fixed]", "hw_tc_offload": "off [fixed]", "tx_checksum_ip_generic": "on", "tx_fcoe_segmentation": "on", "tx_nocache_copy": "off", "rx_vlan_filter": "off [fixed]", "tx_vlan_offload": "on", "receive_hashing": "off [fixed]", "tx_gre_segmentation": "on"}, "interfaces": [], "id": "8000.024240af1187", "mtu": 1500, "device": "docker0", "promisc": false, "stp": false, "ipv4": {"broadcast": "172.17.255.255", "netmask": "255.255.0.0", "network": "172.17.0.0", "address": "172.17.0.1"}, "active": false, "timestamping": ["rx_software", "software"], "type": "bridge", "hw_timestamp_filters": []}, "ansible_processor": ["0", "GenuineIntel", "Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz"], "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDiahiv49vfSk5ckZW6+ZExI9QGlV+EcVGXrNVJaRTx7U7euoDEhEHkVbFQnbU69AWNRFuVHFwFpSTZyCM9evQQ=", "ansible_user_gid": 0, "ansible_system_vendor": "Xen", "ansible_swaptotal_mb": 0, "ansible_distribution_major_version": "2", "ansible_real_group_id": 0, "ansible_lsb": {}, "ansible_machine": "x86_64", "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQCr9UtKGKOXqdXpFxWI4byTc45f1l/sTQGffM2q3O/o2gR8w8H39/WS89xVTqu5qMOwTRvV85DjyfSgJ0mv6SP8SF/mZpRiRPsmmNTTjCtDCgR9lKElhCspIQKcLUZf0eopZU7UKQDuRUDH6tWjrCd+RfBtGH980CO/OncS8Kvcu/JZXt92qiCpxhV/7JZAJDZuFCBOFkZ0sLZ5dDyTTGkzBEMrx6nb4K0q7cAKOj1ehi0TujSEjV+eI3euFGVa+plS76WHDSxi9QL7nO5DhOffhZhlrgfCF+FHlJpDKAKzWYokwESfpY73wF8Q2LjKKkjkEYTN9c7iOoPN+++nb3UP", "ansible_user_gecos": "root", "ansible_processor_threads_per_core": 1, "ansible_eth0": {"macaddress": "0a:32:a8:52:6b:26", "features": {"tx_checksum_ipv4": "on [fixed]", "generic_receive_offload": "on", "tx_checksum_ipv6": "on", "tx_scatter_gather_fraglist": "off [fixed]", "rx_all": "off [fixed]", "highdma": "off [fixed]", "rx_fcs": "off [fixed]", "tx_lockless": "off [fixed]", "tx_tcp_ecn_segmentation": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "tx_gso_robust": "on [fixed]", "tx_tcp_mangleid_segmentation": "off", "tx_ipxip4_segmentation": "off [fixed]", "tx_checksumming": "on", "vlan_challenged": "off [fixed]", "loopback": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "fcoe_mtu": "off [fixed]", "scatter_gather": "on", "tx_checksum_sctp": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "tx_gso_partial": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "large_receive_offload": "off [fixed]", "tx_scatter_gather": "on", "rx_checksumming": "on [fixed]", "tx_tcp_segmentation": "on", "netns_local": "off [fixed]", "tx_esp_segmentation": "off [fixed]", "generic_segmentation_offload": "on", "tx_udp_tnl_segmentation": "off [fixed]", "tcp_segmentation_offload": "on", "l2_fwd_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "tx_tcp6_segmentation": "on", "tx_udp_tnl_csum_segmentation": "off [fixed]", "udp_fragmentation_offload": "off", "tx_sctp_segmentation": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "hw_tc_offload": "off [fixed]", "tx_checksum_ip_generic": "off [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_nocache_copy": "off", "rx_vlan_filter": "off [fixed]", "tx_vlan_offload": "off [fixed]", "receive_hashing": "off [fixed]", "tx_gre_segmentation": "off [fixed]"}, "pciid": "vif-0", "module": "xen_netfront", "mtu": 9001, "device": "eth0", "promisc": false, "timestamping": ["rx_software", "software"], "ipv4": {"broadcast": "172.31.15.255", "netmask": "255.255.240.0", "network": "172.31.0.0", "address": "172.31.2.218"}, "ipv6": [{"scope": "link", "prefix": "64", "address": "fe80::832:a8ff:fe52:6b26"}], "active": true, "type": "ether", "hw_timestamp_filters": []}, "ansible_system": "Linux", "ansible_all_ipv4_addresses": ["172.17.0.1", "172.18.0.1", "172.31.2.218"], "ansible_python_version": "2.7.16", "ansible_product_version": "4.2.amazon", "ansible_service_mgr": "systemd", "ansible_memory_mb": {"real": {"total": 983, "used": 734, "free": 249}, "swap": {"cached": 0, "total": 0, "free": 0, "used": 0}, "nocache": {"used": 264, "free": 719}}, "ansible_user_dir": "/root", "gather_subset": ["all"], "ansible_real_user_id": 0, "ansible_virtualization_role": "guest", "ansible_dns": {"nameservers": ["172.31.0.2"], "search": ["ap-south-1.compute.internal"], "options": {"attempts": "5", "timeout": "2"}}, "ansible_effective_group_id": 0, "ansible_lo": {"features": {"tx_checksum_ipv4": "off [fixed]", "generic_receive_offload": "on", "tx_checksum_ipv6": "off [fixed]", "tx_scatter_gather_fraglist": "on [fixed]", "rx_all": "off [fixed]", "highdma": "on [fixed]", "rx_fcs": "off [fixed]", "tx_lockless": "on [fixed]", "tx_tcp_ecn_segmentation": "on", "rx_udp_tunnel_port_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "tx_gso_robust": "off [fixed]", "tx_tcp_mangleid_segmentation": "on", "tx_ipxip4_segmentation": "off [fixed]", "tx_checksumming": "on", "vlan_challenged": "on [fixed]", "loopback": "on [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "fcoe_mtu": "off [fixed]", "scatter_gather": "on", "tx_checksum_sctp": "on [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "tx_gso_partial": "off [fixed]", "rx_vlan_stag_filter": "off [fixed]", "large_receive_offload": "off [fixed]", "tx_scatter_gather": "on [fixed]", "rx_checksumming": "on [fixed]", "tx_tcp_segmentation": "on", "netns_local": "on [fixed]", "tx_esp_segmentation": "off [fixed]", "generic_segmentation_offload": "on", "tx_udp_tnl_segmentation": "off [fixed]", "tcp_segmentation_offload": "on", "l2_fwd_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "tx_tcp6_segmentation": "on", "tx_udp_tnl_csum_segmentation": "off [fixed]", "udp_fragmentation_offload": "off", "tx_sctp_segmentation": "on", "tx_checksum_fcoe_crc": "off [fixed]", "hw_tc_offload": "off [fixed]", "tx_checksum_ip_generic": "on [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_nocache_copy": "off [fixed]", "rx_vlan_filter": "off [fixed]", "tx_vlan_offload": "off [fixed]", "receive_hashing": "off [fixed]", "tx_gre_segmentation": "off [fixed]"}, "hw_timestamp_filters": [], "mtu": 65536, "device": "lo", "promisc": false, "timestamping": ["tx_software", "rx_software", "software"], "ipv4": {"broadcast": "host", "netmask": "255.0.0.0", "network": "127.0.0.0", "address": "127.0.0.1"}, "ipv6": [{"scope": "host", "prefix": "128", "address": "::1"}], "active": true, "type": "loopback"}, "ansible_memtotal_mb": 983, "ansible_device_links": {"masters": {}, "labels": {"xvda1": ["\\\\x2f"]}, "ids": {}, "uuids": {"xvda1": ["e75a1891-3463-448b-8f59-5e3353af90ba"]}}, "ansible_apparmor": {"status": "disabled"}, "ansible_proc_cmdline": {"console": ["tty0", "ttyS0,115200n8"], "rd.emergency": "poweroff", "net.ifnames": "0", "biosdevname": "0", "rd.shell": "0", "BOOT_IMAGE": "/boot/vmlinuz-4.14.171-136.231.amzn2.x86_64", "ro": true, "root": "UUID=e75a1891-3463-448b-8f59-5e3353af90ba", "nvme_core.io_timeout": "4294967295"}, "ansible_memfree_mb": 249, "ansible_processor_count": 1, "ansible_hostname": "tomcat", "ansible_interfaces": ["lo", "docker0", "docker_gwbridge", "eth0"], "ansible_selinux": {"status": "Missing selinux Python library"}, "ansible_fqdn": "tomcat", "ansible_mounts": [{"block_used": 854147, "uuid": "e75a1891-3463-448b-8f59-5e3353af90ba", "size_total": 8577331200, "block_total": 2094075, "mount": "/", "block_available": 1239928, "size_available": 5078745088, "fstype": "xfs", "inode_total": 4193216, "options": "rw,noatime,attr2,inode64,noquota", "device": "/dev/xvda1", "inode_used": 88211, "block_size": 4096, "inode_available": 4105005}], "ansible_nodename": "tomcat", "ansible_lvm": {"pvs": {}, "lvs": {}, "vgs": {}}, "ansible_domain": "", "ansible_distribution_file_path": "/etc/system-release", "ansible_virtualization_type": "xen", "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIFTPtCgaw3nDIb0uJnLHyn+UO6at4yHjadyeG2v+cmE/", "ansible_processor_cores": 1, "ansible_bios_version": "4.2.amazon", "ansible_date_time": {"weekday_number": "4", "iso8601_basic_short": "20200514T142159", "tz": "UTC", "weeknumber": "19", "hour": "14", "year": "2020", "minute": "21", "tz_offset": "+0000", "month": "05", "epoch": "1589466119", "iso8601_micro": "2020-05-14T14:21:59.571762Z", "weekday": "Thursday", "time": "14:21:59", "date": "2020-05-14", "iso8601": "2020-05-14T14:21:59Z", "day": "14", "iso8601_basic": "20200514T142159571687", "second": "59"}, "ansible_distribution_release": "NA", "ansible_os_family": "RedHat", "ansible_effective_user_id": 0, "ansible_product_name": "HVM domU", "ansible_devices": {"xvda": {"scheduler_mode": "noop", "rotational": "0", "vendor": null, "sectors": "16777216", "links": {"masters": [], "labels": [], "ids": [], "uuids": []}, "sas_device_handle": null, "sas_address": null, "virtual": 1, "host": "", "sectorsize": "512", "removable": "0", "support_discard": "0", "model": null, "partitions": {"xvda1": {"sectorsize": 512, "uuid": "e75a1891-3463-448b-8f59-5e3353af90ba", "links": {"masters": [], "labels": ["\\\\x2f"], "ids": [], "uuids": ["e75a1891-3463-448b-8f59-5e3353af90ba"]}, "sectors": "16773087", "start": "4096", "holders": [], "size": "8.00 GB"}}, "holders": [], "size": "8.00 GB"}}, "ansible_user_uid": 0, "ansible_bios_date": "08/24/2006", "ansible_system_capabilities": ["cap_chown", "cap_dac_override", "cap_dac_read_search", "cap_fowner", "cap_fsetid", "cap_kill", "cap_setgid", "cap_setuid", "cap_setpcap", "cap_linux_immutable", "cap_net_bind_service", "cap_net_broadcast", "cap_net_admin", "cap_net_raw", "cap_ipc_lock", "cap_ipc_owner", "cap_sys_module", "cap_sys_rawio", "cap_sys_chroot", "cap_sys_ptrace", "cap_sys_pacct", "cap_sys_admin", "cap_sys_boot", "cap_sys_nice", "cap_sys_resource", "cap_sys_time", "cap_sys_tty_config", "cap_mknod", "cap_lease", "cap_audit_write", "cap_audit_control", "cap_setfcap", "cap_mac_override", "cap_mac_admin", "cap_syslog", "35", "36", "37+ep"]}}\r\n', 'Shared connection to tomcat closed.\r\n')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'rm -f -r /root/.ansible/tmp/ansible-tmp-1589466118.96-5329-192945674180943/ > /dev/null 2>&1 && sleep 0'"'"''
+<tomcat> (0, '', '')
+[WARNING]: Platform linux on host tomcat is using the discovered Python interpreter at /usr/bin/python, but future installation of
+another Python interpreter could change this. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html
+for more information.
+ok: [tomcat]
+META: ran handlers
+
+TASK [docker-worker-add : Checking the Yum update] **************************************************************************************
+task path: /etc/ansible/roles/docker-worker-add/tasks/main.yml:4
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<tomcat> (0, '/root\n', '')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir /root/.ansible/tmp/ansible-tmp-1589466119.88-5343-4262385850636 && echo ansible-tmp-1589466119.88-5343-4262385850636="` echo /root/.ansible/tmp/ansible-tmp-1589466119.88-5343-4262385850636 `" ) && sleep 0'"'"''
+<tomcat> (0, 'ansible-tmp-1589466119.88-5343-4262385850636=/root/.ansible/tmp/ansible-tmp-1589466119.88-5343-4262385850636\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/packaging/os/yum.py
+<tomcat> PUT /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpbch1GF TO /root/.ansible/tmp/ansible-tmp-1589466119.88-5343-4262385850636/AnsiballZ_yum.py
+<tomcat> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 '[tomcat]'
+<tomcat> (0, 'sftp> put /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpbch1GF /root/.ansible/tmp/ansible-tmp-1589466119.88-5343-4262385850636/AnsiballZ_yum.py\n', '')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'chmod u+x /root/.ansible/tmp/ansible-tmp-1589466119.88-5343-4262385850636/ /root/.ansible/tmp/ansible-tmp-1589466119.88-5343-4262385850636/AnsiballZ_yum.py && sleep 0'"'"''
+<tomcat> (0, '', '')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 -tt tomcat '/bin/sh -c '"'"'/usr/bin/python /root/.ansible/tmp/ansible-tmp-1589466119.88-5343-4262385850636/AnsiballZ_yum.py && sleep 0'"'"''
+<tomcat> (0, '\r\n{"msg": "", "invocation": {"module_args": {"lock_timeout": 30, "update_cache": true, "disable_excludes": null, "exclude": [], "allow_downgrade": false, "disable_gpg_check": false, "conf_file": null, "use_backend": "auto", "state": "latest", "disablerepo": [], "releasever": null, "skip_broken": false, "autoremove": false, "download_dir": null, "enable_plugin": [], "installroot": "/", "install_weak_deps": true, "name": ["*"], "download_only": false, "bugfix": false, "list": null, "install_repoquery": true, "update_only": false, "disable_plugin": [], "enablerepo": [], "security": false, "validate_certs": true}}, "changed": false, "results": ["Nothing to do here, all packages are up to date"], "rc": 0}\r\n', 'Shared connection to tomcat closed.\r\n')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'rm -f -r /root/.ansible/tmp/ansible-tmp-1589466119.88-5343-4262385850636/ > /dev/null 2>&1 && sleep 0'"'"''
+<tomcat> (0, '', '')
+ok: [tomcat] => {
+    "changed": false, 
+    "invocation": {
+        "module_args": {
+            "allow_downgrade": false, 
+            "autoremove": false, 
+            "bugfix": false, 
+            "conf_file": null, 
+            "disable_excludes": null, 
+            "disable_gpg_check": false, 
+            "disable_plugin": [], 
+            "disablerepo": [], 
+            "download_dir": null, 
+            "download_only": false, 
+            "enable_plugin": [], 
+            "enablerepo": [], 
+            "exclude": [], 
+            "install_repoquery": true, 
+            "install_weak_deps": true, 
+            "installroot": "/", 
+            "list": null, 
+            "lock_timeout": 30, 
+            "name": [
+                "*"
+            ], 
+            "releasever": null, 
+            "security": false, 
+            "skip_broken": false, 
+            "state": "latest", 
+            "update_cache": true, 
+            "update_only": false, 
+            "use_backend": "auto", 
+            "validate_certs": true
+        }
+    }, 
+    "msg": "", 
+    "rc": 0, 
+    "results": [
+        "Nothing to do here, all packages are up to date"
+    ]
+}
+
+TASK [docker-worker-add : debug] ********************************************************************************************************
+task path: /etc/ansible/roles/docker-worker-add/tasks/main.yml:8
+ok: [tomcat] => {
+    "msg": "Packages Updated in Total is {u'msg': u'', 'failed': False, u'changed': False, u'results': [u'Nothing to do here, all packages are up to date'], u'rc': 0}"
+}
+
+TASK [docker-worker-add : Verifying if docker-CE is installed] **************************************************************************
+task path: /etc/ansible/roles/docker-worker-add/tasks/main.yml:12
+skipping: [tomcat] => {
+    "changed": false, 
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [docker-worker-add : shell] ********************************************************************************************************
+task path: /etc/ansible/roles/docker-worker-add/tasks/main.yml:15
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<tomcat> (0, '/root\n', '')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir /root/.ansible/tmp/ansible-tmp-1589466122.41-5356-212694033498256 && echo ansible-tmp-1589466122.41-5356-212694033498256="` echo /root/.ansible/tmp/ansible-tmp-1589466122.41-5356-212694033498256 `" ) && sleep 0'"'"''
+<tomcat> (0, 'ansible-tmp-1589466122.41-5356-212694033498256=/root/.ansible/tmp/ansible-tmp-1589466122.41-5356-212694033498256\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<tomcat> PUT /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmp2CILK1 TO /root/.ansible/tmp/ansible-tmp-1589466122.41-5356-212694033498256/AnsiballZ_command.py
+<tomcat> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 '[tomcat]'
+<tomcat> (0, 'sftp> put /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmp2CILK1 /root/.ansible/tmp/ansible-tmp-1589466122.41-5356-212694033498256/AnsiballZ_command.py\n', '')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'chmod u+x /root/.ansible/tmp/ansible-tmp-1589466122.41-5356-212694033498256/ /root/.ansible/tmp/ansible-tmp-1589466122.41-5356-212694033498256/AnsiballZ_command.py && sleep 0'"'"''
+<tomcat> (0, '', '')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 -tt tomcat '/bin/sh -c '"'"'/usr/bin/python /root/.ansible/tmp/ansible-tmp-1589466122.41-5356-212694033498256/AnsiballZ_command.py && sleep 0'"'"''
+<tomcat> (0, '\r\n{"changed": true, "end": "2020-05-14 14:22:02.717561", "stdout": " Version:           19.03.6-ce\\n  Version:          19.03.6-ce\\n  Version:          1.3.2\\n  Version:          1.0.0-rc10\\n  Version:          0.18.0", "cmd": "docker version | grep \\"Version\\"", "rc": 0, "start": "2020-05-14 14:22:02.661194", "stderr": "", "delta": "0:00:00.056367", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "docker version | grep \\"Version\\"", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to tomcat closed.\r\n')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'rm -f -r /root/.ansible/tmp/ansible-tmp-1589466122.41-5356-212694033498256/ > /dev/null 2>&1 && sleep 0'"'"''
+<tomcat> (0, '', '')
+changed: [tomcat] => {
+    "changed": true, 
+    "cmd": "docker version | grep \"Version\"", 
+    "delta": "0:00:00.056367", 
+    "end": "2020-05-14 14:22:02.717561", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "docker version | grep \"Version\"", 
+            "_uses_shell": true, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2020-05-14 14:22:02.661194", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": " Version:           19.03.6-ce\n  Version:          19.03.6-ce\n  Version:          1.3.2\n  Version:          1.0.0-rc10\n  Version:          0.18.0", 
+    "stdout_lines": [
+        " Version:           19.03.6-ce", 
+        "  Version:          19.03.6-ce", 
+        "  Version:          1.3.2", 
+        "  Version:          1.0.0-rc10", 
+        "  Version:          0.18.0"
+    ]
+}
+
+TASK [docker-worker-add : debug] ********************************************************************************************************
+task path: /etc/ansible/roles/docker-worker-add/tasks/main.yml:17
+ok: [tomcat] => {
+    "msg": "Docker Version on the Target Node is {'stderr_lines': [], u'changed': True, u'end': u'2020-05-14 14:22:02.717561', 'failed': False, u'stdout': u' Version:           19.03.6-ce\\n  Version:          19.03.6-ce\\n  Version:          1.3.2\\n  Version:          1.0.0-rc10\\n  Version:          0.18.0', u'cmd': u'docker version | grep \"Version\"', u'rc': 0, u'start': u'2020-05-14 14:22:02.661194', u'stderr': u'', u'delta': u'0:00:00.056367', 'stdout_lines': [u' Version:           19.03.6-ce', u'  Version:          19.03.6-ce', u'  Version:          1.3.2', u'  Version:          1.0.0-rc10', u'  Version:          0.18.0']}"
+}
+
+TASK [docker-worker-add : Adding a worker to the manager Node] **************************************************************************
+task path: /etc/ansible/roles/docker-worker-add/tasks/main.yml:21
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'echo ~ && sleep 0'"'"''
+<tomcat> (0, '/root\n', '')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir /root/.ansible/tmp/ansible-tmp-1589466122.93-5367-279468414844195 && echo ansible-tmp-1589466122.93-5367-279468414844195="` echo /root/.ansible/tmp/ansible-tmp-1589466122.93-5367-279468414844195 `" ) && sleep 0'"'"''
+<tomcat> (0, 'ansible-tmp-1589466122.93-5367-279468414844195=/root/.ansible/tmp/ansible-tmp-1589466122.93-5367-279468414844195\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<tomcat> PUT /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpfpLzCs TO /root/.ansible/tmp/ansible-tmp-1589466122.93-5367-279468414844195/AnsiballZ_command.py
+<tomcat> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 '[tomcat]'
+<tomcat> (0, 'sftp> put /root/.ansible/tmp/ansible-local-4411lN0XZ5/tmpfpLzCs /root/.ansible/tmp/ansible-tmp-1589466122.93-5367-279468414844195/AnsiballZ_command.py\n', '')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'chmod u+x /root/.ansible/tmp/ansible-tmp-1589466122.93-5367-279468414844195/ /root/.ansible/tmp/ansible-tmp-1589466122.93-5367-279468414844195/AnsiballZ_command.py && sleep 0'"'"''
+<tomcat> (0, '', '')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 -tt tomcat '/bin/sh -c '"'"'/usr/bin/python /root/.ansible/tmp/ansible-tmp-1589466122.93-5367-279468414844195/AnsiballZ_command.py && sleep 0'"'"''
+<tomcat> (0, '\r\n{"changed": true, "end": "2020-05-14 14:22:03.286455", "stdout": "This node joined a swarm as a worker.", "cmd": "docker swarm join --token SWMTKN-1-4t1a1uie4o9eo5k5ix9vfdrzg2h4670xl2unpvi9yfljg08g5k-ay6bbw4j0smy5y3s8o9687obv  172.31.24.219:2377", "rc": 0, "start": "2020-05-14 14:22:03.178047", "stderr": "", "delta": "0:00:00.108408", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "docker swarm join --token SWMTKN-1-4t1a1uie4o9eo5k5ix9vfdrzg2h4670xl2unpvi9yfljg08g5k-ay6bbw4j0smy5y3s8o9687obv  172.31.24.219:2377", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to tomcat closed.\r\n')
+<tomcat> ESTABLISH SSH CONNECTION FOR USER: None
+<tomcat> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/root/rhel7.pem"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/root/.ansible/cp/c8a9a7ad84 tomcat '/bin/sh -c '"'"'rm -f -r /root/.ansible/tmp/ansible-tmp-1589466122.93-5367-279468414844195/ > /dev/null 2>&1 && sleep 0'"'"''
+<tomcat> (0, '', '')
+changed: [tomcat] => {
+    "changed": true, 
+    "cmd": "docker swarm join --token SWMTKN-1-4t1a1uie4o9eo5k5ix9vfdrzg2h4670xl2unpvi9yfljg08g5k-ay6bbw4j0smy5y3s8o9687obv  172.31.24.219:2377", 
+    "delta": "0:00:00.108408", 
+    "end": "2020-05-14 14:22:03.286455", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "docker swarm join --token SWMTKN-1-4t1a1uie4o9eo5k5ix9vfdrzg2h4670xl2unpvi9yfljg08g5k-ay6bbw4j0smy5y3s8o9687obv  172.31.24.219:2377", 
+            "_uses_shell": true, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2020-05-14 14:22:03.178047", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": "This node joined a swarm as a worker.", 
+    "stdout_lines": [
+        "This node joined a swarm as a worker."
+    ]
+}
+
+TASK [docker-worker-add : debug] ********************************************************************************************************
+task path: /etc/ansible/roles/docker-worker-add/tasks/main.yml:24
+ok: [tomcat] => {
+    "msg": {
+        "changed": true, 
+        "cmd": "docker swarm join --token SWMTKN-1-4t1a1uie4o9eo5k5ix9vfdrzg2h4670xl2unpvi9yfljg08g5k-ay6bbw4j0smy5y3s8o9687obv  172.31.24.219:2377", 
+        "delta": "0:00:00.108408", 
+        "end": "2020-05-14 14:22:03.286455", 
+        "failed": false, 
+        "rc": 0, 
+        "start": "2020-05-14 14:22:03.178047", 
+        "stderr": "", 
+        "stderr_lines": [], 
+        "stdout": "This node joined a swarm as a worker.", 
+        "stdout_lines": [
+            "This node joined a swarm as a worker."
+        ]
+    }
+}
+META: ran handlers
+META: ran handlers
+
+PLAY RECAP ******************************************************************************************************************************
+docker                     : ok=13   changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+tomcat                     : ok=7    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+
