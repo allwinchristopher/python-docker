@@ -1,5 +1,5 @@
 ---
-# tasks file for docker-stack-service
+# tasks file for docker-stack-service.
 
 - name: Checking if the swarm ckuster exists
   shell: docker node ls
