@@ -7,6 +7,7 @@
     -> elinks
 
 
+
       
 2. Install docker-ce 18 or 19 and enable the docker services at system startup:
 
@@ -21,10 +22,12 @@
    -> systemctl enable docker
 
 
+
    
 3. Verify the docker version:
    
    -> dokcer version
+
 
 
    
@@ -33,6 +36,7 @@
    Filename - docker_rw.py
 
    ==> This script executes by taking an input from one file location and writes it to another file on another location.
+
 
 
 
@@ -46,7 +50,9 @@
    5.1 Install and configure pip3 -> pip3 install flask
 
    5.2 Import the flask module into the script to use the web framework
-   
+
+
+
 
 
 6. Flask webapp to render HTML contents:
@@ -59,6 +65,8 @@
    6.1 Create a folder named "template" under the source directory structure and place the html contents.
 
    6.2 Flask looks for the html contents to serve under templa tes directory, when a web request is being hit at the root(home) directory.
+
+
 
 
 
@@ -79,6 +87,8 @@
 
 
 
+
+
 8. Implementing the application at dokcer containers using bind/named-volumes volumes mounting:
 
    Filename - docker-compose-webapp.py
@@ -96,6 +106,9 @@
    8.4 The corresponding docker files can be found under "dockerfile" folder.This script uses bridge network.
 
 
+
+
+
 9. Implementing the overlay network on Docker Swarm:
 
    Filename - docker-compose-webapp.py
@@ -109,6 +122,10 @@
    9.2 Create an overlay network to integrate multiple container in multiple hosts and scale applications between them.
 
    ==>  Create a service by deploying the application using docker stack. The stack when deployed creates an instance of python & redis container with two replica sets on the cluster.
+
+
+
+
 
 
 10. Ansible roles created to deploy the applications created in the swarm cluster:
