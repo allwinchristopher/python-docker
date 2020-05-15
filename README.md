@@ -33,7 +33,6 @@
    Filename - python-flask.py
 
    Pre-requisites of this script:
-   ==============================
 
    5.1 Install and configure pip3 -> pip3 install flask
    5.2 Import the flask module into the script to use the web framework
