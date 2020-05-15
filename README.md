@@ -43,8 +43,7 @@
    Filename - python-webapp.py
 
    Pre-requisites of this script:
-   ==============================
-
+   
    6.1 Create a folder named "template" under the source directory structure and place the html contents.
    6.2 Flask looks for the html contents to serve under templa tes directory, when a web request is being hit at the root(home) directory.
 
@@ -54,8 +53,7 @@
    Filename - local-compose-webapp.py
 
    Pre-requisites of this script:
-   ==============================
-
+   
    7.1  Install Redis datastore using the pip3 module and import it in the source.
    7.2  Configure the redis host and port and assign it to a variable.
    7.3  If a web request is being made to the Flask webapp, it increments and stores the value in a particular key at redis.
@@ -68,8 +66,7 @@
    Filename - dockerfile/Dockerfile & dockerfile/docker-compose.yml-network
 
    Pre-requisites of this script:
-   ==============================
-
+   
    8.1 Deploy multiple docker containers of customised python and redis images and map them with the respective volumes, where the python app has to fetch input/output parameters.
    8.2 Flask application integrates with the redis application usinf redis container name.
    8.3 Redis container must be made dependent of flask application to ensure redis container is up and running before flask app.
