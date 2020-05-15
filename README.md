@@ -93,4 +93,34 @@
 
    8.3 Redis container must be made dependent of flask application to ensure redis container is up and running before flask app.
 
-   8.4 The corresponding docker files can be found under "dockerfile" folder.
+   8.4 The corresponding docker files can be found under "dockerfile" folder.This script uses bridge network.
+
+
+9. Implementing the overlay network on Docker Swarm:
+
+   Filename - docker-compose-webapp.py
+   Filename - docker-stack/Dockerfile  &  docker-stack/docker-compose.yml
+
+
+   Pre-requisites of this script:
+
+   9.1 Setup a docker swarm cluster and add a worker node to it.
+
+   9.2 Create an overlay network to integrate multiple container in multiple hosts and scale applications between them.
+
+   ==>  Create a service by deploying the application using docker stack. The stack when deployed creates an instance of python & redis container with two replica sets on the cluster.
+
+
+10. Ansible roles created to deploy the applications created in the swarm cluster:
+
+    Folder - ansible_role
+    Main playbook -  swarm-init.yml
+    Ansible log  -  ansible_swarmcluster.log
+
+    Roles:
+
+    10.1  Creating an ansible role to create the docker swarm cluster
+
+    10.2  Adding a target node to the cluster
+
+    10.3  Creating a service and deploying it in the cluster with docker stack.
