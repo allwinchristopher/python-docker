@@ -26,7 +26,7 @@
    
 3. Verify the docker version:
    
-   -> dokcer version
+   -> docker version
 
 
 
